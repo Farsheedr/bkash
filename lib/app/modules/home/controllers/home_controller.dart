@@ -27,6 +27,7 @@ class HomeController extends GetxController {
   var showOtherList = false.obs;
   RxBool isExpanded = false.obs;
   RxInt carouselIndex=0.obs;
+  var containerHeight = 200.0.obs;
 
   void toggleSchoolList(){
     showSchoolList.value=!showSchoolList.value;

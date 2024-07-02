@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/home/views/send_money_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -13,6 +14,8 @@ class AppPages {
   static const INITIAL = Routes.HOME;
   static const OTHER = Routes.OTHER;
   static const MAIN = Routes.MAIN;
+  static const MONEY = Routes.MONEY;
+
 
   static final routes = [
     GetPage(
@@ -28,6 +31,11 @@ class AppPages {
     GetPage(
       name: _Paths.MAIN,
       page: () =>  MainView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.MONEY,
+      page: () =>  SendMoneyView(),
       binding: HomeBinding(),
     ),
   ];

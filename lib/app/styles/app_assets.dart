@@ -26,6 +26,26 @@ class AppAssets{
   static String get carousel2=> "assets/images/bkash_carousel_2.jpg";
   static String get carousel3=> "assets/images/bkash_carousel_3.jpeg";
   static String get carousel4=> "assets/images/bkash_carousel_5.jpg";
+  static String get railwayLogo=> "assets/images/railway.png";
+  static String get toffeeLogo=> "assets/images/toffee.jpg";
+  static String get gameLogo=> "assets/images/gamestar.png";
+  static String get shadhinLogo=> "assets/images/shadhin.png";
+  static String get darazLogo=> "assets/images/daraz.png";
+  static String get shongjogLogo=> "assets/images/shongjog.png";
+  static String get minLogo=> "assets/images/10min.png";
+  static String get quizLogo=> "assets/images/quizgiri.png";
+  static String get medixLogo=> "assets/images/medix.jpg";
+  static String get amyLogo=> "assets/images/amy.jpg";
+  static String get zayanLogo=> "assets/images/gozayan.jpeg";
+  static String get onmobileLogo=> "assets/images/onmobile.png";
+
+
+
+
+
+
+
+
 
 
 

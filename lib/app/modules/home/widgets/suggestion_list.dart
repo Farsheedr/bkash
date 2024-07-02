@@ -18,18 +18,18 @@ class SuggestionList extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 100,
-        height: 150,
+        height: 100,
         margin: EdgeInsets.only(right: 10),
         child: Column(
           children: [
             Container(
-              width: 100,
-              height: 100,
+              width: 50,
+              height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   image: AssetImage(imagePath),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

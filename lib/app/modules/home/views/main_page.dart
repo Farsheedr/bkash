@@ -89,141 +89,150 @@ class MainView extends GetView<HomeController> {
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-               Obx(() => Visibility(
-                 visible: controller.isExpanded.value,
-                child: GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true, // Wrap content inside the ExpansionTile
-                  crossAxisCount: 4, // Number of columns in the grid
-                  crossAxisSpacing: 5.0, // Spacing between columns
-                  mainAxisSpacing: 5.0, // Spacing between rows
-                  children: [
-                    CustomIconButton(
-                      icon: Icons.monetization_on_outlined,
-                      iconColor: AppColor.appRed,
-                      label: 'সেনড মানি',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.send_to_mobile,
-                      iconColor: AppColor.appGreen,
-                      label: 'মোবাইল রিচার্জ',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.money_outlined,
-                      iconColor: AppColor.cyan,
-                      label: 'ক্যাশ আউট',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.shopping_bag,
-                      iconColor: Colors.orange,
-                      label: 'পেমেন্ট ',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.add_card,
-                      iconColor: Colors.purple,
-                      label: 'অ্যাড মানি',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.lightbulb,
-                      iconColor: AppColor.appGreen,
-                      label: 'পে বিল',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.savings,
-                      iconColor:Colors.deepPurple,
-                      label: 'সেভিংস',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.attach_money_outlined,
-                      iconColor: Colors.brown,
-                      label: 'লোন',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.monetization_on_outlined,
-                      iconColor: AppColor.appBlue,
-                      label: 'ইনসিওরেন্স',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.house,
-                      iconColor: AppColor.appRed,
-                      label: 'বিকাশ টু ব্যাংক',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.school,
-                      iconColor: AppColor.blackColor,
-                      label: 'এডুকেশন ফি',
-                      onPressed: () {
-                        Get.toNamed(AppPages.INITIAL);
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.price_check,
-                      iconColor: AppColor.bkashPurplelight,
-                      label: 'মাইক্রোফাইনান্স',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.mobile_screen_share,
-                      iconColor: AppColor.appRed,
-                      label: 'রিকুোয়েষট মানি ',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.language,
-                      iconColor: AppColor.appGreen,
-                      label: 'রেমিটেন্স  ',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                    CustomIconButton(
-                      icon: Icons.search_outlined,
-                      label: 'বিনিময়',
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                    ),
-                  ],
-                ),
-              )),
+               Obx(() => AnimatedContainer(
+                 duration: Duration(milliseconds: 300),
+                 height: controller.isExpanded.value ? null : 200.0,
+                 child:  Column(
+                   children: [
+                     controller.isExpanded.value || controller.containerHeight.value>200.0
+                      ? GridView.count(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true, // Wrap content inside the ExpansionTile
+                        crossAxisCount: 4, // Number of columns in the grid
+                        crossAxisSpacing: 5.0, // Spacing between columns
+                        mainAxisSpacing: 5.0, // Spacing between rows
+                        children: [
+                          CustomIconButton(
+                            icon: Icons.monetization_on_outlined,
+                            iconColor: AppColor.appRed,
+                            label: 'সেনড মানি',
+                            onPressed: () {
+                              Get.toNamed(AppPages.MONEY);
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.send_to_mobile,
+                            iconColor: AppColor.appGreen,
+                            label: 'মোবাইল রিচার্জ',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.money_outlined,
+                            iconColor: AppColor.cyan,
+                            label: 'ক্যাশ আউট',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.shopping_bag,
+                            iconColor: Colors.orange,
+                            label: 'পেমেন্ট ',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.add_card,
+                            iconColor: Colors.purple,
+                            label: 'অ্যাড মানি',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.lightbulb,
+                            iconColor: AppColor.appGreen,
+                            label: 'পে বিল',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.savings,
+                            iconColor:Colors.deepPurple,
+                            label: 'সেভিংস',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.attach_money_outlined,
+                            iconColor: Colors.brown,
+                            label: 'লোন',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.monetization_on_outlined,
+                            iconColor: AppColor.appBlue,
+                            label: 'ইনসিওরেন্স',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.house,
+                            iconColor: AppColor.appRed,
+                            label: 'বিকাশ টু ব্যাংক',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.school,
+                            iconColor: AppColor.blackColor,
+                            label: 'এডুকেশন ফি',
+                            onPressed: () {
+                              Get.toNamed(AppPages.INITIAL);
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.price_check,
+                            iconColor: AppColor.bkashPurplelight,
+                            label: 'মাইক্রোফাইনান্স',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.mobile_screen_share,
+                            iconColor: AppColor.appRed,
+                            label: 'রিকুোয়েষট মানি ',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.language,
+                            iconColor: AppColor.appGreen,
+                            label: 'রেমিটেন্স  ',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.search_outlined,
+                            label: 'বিনিময়',
+                            onPressed: () {
+                              // Add your onPressed logic here
+                            },
+                          ),
+                        ],
+                      ):SizedBox.shrink(),
+                   ],
+                 )
+
+               )
+               ),
               SizedBox(height: 20), // Space between grid and carousel slider
               ElevatedButton(
                 onPressed: () {
-                  controller.toggleExpansion(); // Toggle the expansion state
+                  controller.isExpanded.value = !controller.isExpanded.value;
+                  controller.containerHeight.value = controller.isExpanded.value ? 400.0 : 200.0;// Toggle the expansion state
                 },
                 child: Obx(() =>
                     Text(controller.isExpanded.value ? 'বন্ধ করুন' : 'আরো দেখুন',
@@ -448,7 +457,7 @@ class MainView extends GetView<HomeController> {
                           child: Row(
                             children: [
                               SuggestionList(
-                                imagePath: 'assets/images/image1.png',
+                                imagePath: AppAssets.quizLogo,
                                 text: 'কুইজগিরি', onTap: () {  },
                               ),
                               SuggestionList(
@@ -456,31 +465,31 @@ class MainView extends GetView<HomeController> {
                                 text: 'কুইজমাসটার ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.minLogo,
                                 text: 'টেন মিনিট স্কুল', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.darazLogo,
                                 text: 'দারাজ ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.railwayLogo,
                                 text: 'বাংলাদেশ রেলওয়ে ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.shadhinLogo,
                                 text: 'স্বাধীন ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.toffeeLogo,
                                 text:' টফি ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.shongjogLogo,
                                 text: 'সংযোগ', onTap: () {  },
                               ),
                               SuggestionList(
-                                imagePath: 'assets/images/image3.png',
+                                imagePath: AppAssets.gameLogo,
                                 text: 'গেমস্টার', onTap: () {  },
                               ),
                               // Add more ImageTextItem widgets as needed
@@ -535,25 +544,25 @@ class MainView extends GetView<HomeController> {
                         child: Row(
                           children: [
                             OfferList(
-                              imagePath: AppAssets.carousel1,
+                              imagePath: AppAssets.medixLogo,
                               text: '২০% ক্যাশব্যাক', onTap: () {  },
                               subtext: 'মেডি',
                             ),
                             SizedBox(width: AppSize.s8,),
                             OfferList(
-                              imagePath: 'assets/images/image3.png',
+                              imagePath: AppAssets.zayanLogo,
                               text: '৬৫% ডিসকাউনট', onTap: () {  },
                               subtext: 'গোজায়ান ',
                             ),
                             SizedBox(width: AppSize.s8,),
                             OfferList(
-                              imagePath: 'assets/images/image3.png',
+                              imagePath: AppAssets.amyLogo,
                               text: '১৫% ডিসকাউনট', onTap: () {  },
                               subtext: 'এমি ট্রাভেল ',
                             ),
                             SizedBox(width: AppSize.s8,),
                             OfferList(
-                              imagePath: 'assets/images/image3.png',
+                              imagePath: AppAssets.onmobileLogo,
                               text: 'বাইক জিতুন', onTap: () {  },
                               subtext: 'অনমোবাইল ',
                             )
@@ -611,17 +620,18 @@ class MainView extends GetView<HomeController> {
     mainAxisSpacing: 5.0, // Spacing between rows
     children: [
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.airplane_ticket,
     label: 'টিকেট ',
     onPressed: () {
-    // Add your onPressed logic here
+
+
     },
     ),
     CustomIconButton(
     icon: Icons.search_outlined,
     label: 'জিপি ফ্লেক্সিপ্লান',
     onPressed: () {
-    // Add your onPressed logic here
+
     },
     ),
     CustomIconButton(
