@@ -122,6 +122,8 @@ class SendMoneyView extends GetView<HomeController> {
                         ),
                         SizedBox(width: AppSize.s10,),
                         Text('গ্রুপ সেন্ড মানি')
+
+
                       ],
                     )
                     
