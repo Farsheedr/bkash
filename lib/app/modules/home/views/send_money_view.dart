@@ -87,6 +87,7 @@ class SendMoneyView extends GetView<HomeController> {
                         
                       ),
                     ),
+
                     Divider(
                       color: AppColor.lightGrayColor,
                       thickness:1.0 ,
