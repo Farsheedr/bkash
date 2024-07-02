@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp>{
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Kuniko",
-        initialRoute: AppPages.INITIAL,
+        initialRoute: AppPages.MAIN,
         initialBinding: HomeBinding(),
         getPages: AppPages.routes,
         theme: ThemeData(

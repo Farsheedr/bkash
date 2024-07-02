@@ -71,6 +71,11 @@ class AppColor {
   static Color get appRed => const Color(0xffE44E3F);
   
   static Color get bkashPurple => const Color(0xffe1267a);
+  static Color get bkashPurplelight => const Color(0xffe5a7c3);
+  static Color get cyan => const Color(0xff2f9ac4);
+
+
+
 
 
 

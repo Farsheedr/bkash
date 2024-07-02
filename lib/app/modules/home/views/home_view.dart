@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
 import '../models/school_list.dart';
@@ -13,7 +14,9 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: AppColor.colorWhite),
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(AppPages.MAIN);
+          },
         ),
         title: Text(
           'এডুকেশন ফি',

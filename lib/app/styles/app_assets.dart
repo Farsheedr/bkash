@@ -22,6 +22,12 @@ class AppAssets{
   static String get diuLogo => "assets/images/diu.jpg";
   static String get shiksaLogo => "assets/images/eshiksa.jpg";
   static String get uccLogo => "assets/images/ucc.png";
+  static String get carousel1=> "assets/images/bkash_carousel_1.jpg";
+  static String get carousel2=> "assets/images/bkash_carousel_2.jpg";
+  static String get carousel3=> "assets/images/bkash_carousel_3.jpeg";
+  static String get carousel4=> "assets/images/bkash_carousel_5.jpg";
+
+
 
 
 

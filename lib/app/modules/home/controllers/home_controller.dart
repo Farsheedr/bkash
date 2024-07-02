@@ -25,6 +25,8 @@ class HomeController extends GetxController {
   var showUniversityList=false.obs;
   var showTrainingList = false.obs;
   var showOtherList = false.obs;
+  RxBool isExpanded = false.obs;
+  RxInt carouselIndex=0.obs;
 
   void toggleSchoolList(){
     showSchoolList.value=!showSchoolList.value;
@@ -42,6 +44,13 @@ class HomeController extends GetxController {
   void toggleOtherList(){
     showOtherList.value=!showOtherList.value;
   }
+
+  void toggleExpansion(){
+    isExpanded.value=!isExpanded.value;
+}
+void updateCarouselIndex(int index){
+    carouselIndex.value=index;
+}
 
 
   void increment() => count.value++;
