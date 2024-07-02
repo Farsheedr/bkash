@@ -133,7 +133,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: Colors.orange,
                             label: 'পেমেন্ট ',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.PAYMENT);
                             },
                           ),
                           CustomIconButton(
@@ -141,7 +141,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: Colors.purple,
                             label: 'অ্যাড মানি',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.ADD);
                             },
                           ),
                           CustomIconButton(
@@ -149,7 +149,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appGreen,
                             label: 'পে বিল',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.BILL);
                             },
                           ),
                           CustomIconButton(

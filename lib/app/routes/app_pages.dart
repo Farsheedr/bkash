@@ -1,9 +1,12 @@
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/home/views/add_money.dart';
 import 'package:untitled/app/modules/home/views/cash_out.dart';
+import 'package:untitled/app/modules/home/views/pay_bill.dart';
+import 'package:untitled/app/modules/home/views/payment.dart';
 import 'package:untitled/app/modules/home/views/send_money_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
+import '../modules/home/views/education_view.dart';
 import '../modules/home/views/main_page.dart';
 import '../modules/home/views/other_view.dart';
 import '../modules/home/views/recharge_view.dart';
@@ -19,6 +22,10 @@ class AppPages {
   static const MONEY = Routes.MONEY;
   static const RECHARGE = Routes.RECHARGE;
   static const CASH = Routes.CASH;
+  static const PAYMENT = Routes.PAYMENT;
+  static const ADD = Routes.ADD;
+  static const BILL = Routes.BILL;
+
 
 
 
@@ -54,6 +61,21 @@ class AppPages {
     GetPage(
       name: _Paths.CASH,
       page: () =>  CashoutView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () =>  PaymentView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD,
+      page: () =>  AddMoneyView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.BILL,
+      page: () =>  PayBillView(),
       binding: HomeBinding(),
     ),
   ];

@@ -43,8 +43,11 @@ class CashoutView extends StatelessWidget {
             child: Column(
               children: [
                 TabBar(
+                  indicatorColor: AppColor.bkashPurple,
+                  labelColor: AppColor.bkashPurple,
+
                   tabs: [
-                    Tab(text: 'এজেন্ট '),
+                    Tab(text: 'এজেন্ট ',),
                     Tab(text: 'এটিএম '),
                   ],
                 ),

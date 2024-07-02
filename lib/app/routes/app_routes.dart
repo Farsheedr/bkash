@@ -9,6 +9,12 @@ abstract class Routes {
   static const MONEY = _Paths.MONEY;
   static const RECHARGE  = _Paths.RECHARGE;
   static const CASH = _Paths.CASH;
+  static const PAYMENT = _Paths.PAYMENT;
+  static const ADD = _Paths.ADD;
+  static const BILL = _Paths.BILL;
+
+
+
 
 
 
@@ -22,4 +28,10 @@ abstract class _Paths {
   static const MONEY = '/money';
   static const RECHARGE = '/recharge';
   static const CASH = '/cashout';
+  static const PAYMENT = '/payment';
+  static const ADD = '/add';
+  static const BILL = '/bill';
+
+
+
 }
