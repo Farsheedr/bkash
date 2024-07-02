@@ -124,6 +124,10 @@ class SendMoneyView extends GetView<HomeController> {
                         Text('গ্রুপ সেন্ড মানি')
 
 
+
+
+
+
                       ],
                     )
                     
