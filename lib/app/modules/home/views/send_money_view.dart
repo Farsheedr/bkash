@@ -15,7 +15,7 @@ class SendMoneyView extends GetView<HomeController> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: AppColor.colorWhite),
           onPressed: () {
-            Get.toNamed(AppPages.MAIN);
+            Get.toNamed(AppPages.INITIAL);
           },
         ),
         title: Text(
@@ -75,30 +75,36 @@ class SendMoneyView extends GetView<HomeController> {
                       ),
                     ),
                     SizedBox(height: AppSize.s10,),
-                    Row(
-                      children: [
-                        Icon(Icons.change_circle_outlined,color: AppColor.bkashPurple,size: 30,),
-                        SizedBox(width: AppSize.s6,),
-                        Text('আপনার অটো পে(০)',
-                        style: TextStyle(color: AppColor.bkashPurple,fontSize: 16,fontWeight: FontWeight.bold)),
-                      ],
-                      
+                    InkWell(
+                      onTap: (){},
+                      child: Row(
+                        children: [
+                          Icon(Icons.change_circle_outlined,color: AppColor.bkashPurple,size: 30,),
+                          SizedBox(width: AppSize.s6,),
+                          Text('আপনার অটো পে(০)',
+                          style: TextStyle(color: AppColor.bkashPurple,fontSize: 16,fontWeight: FontWeight.bold)),
+                        ],
+                        
+                      ),
                     ),
                     Divider(
                       color: AppColor.lightGrayColor,
                       thickness:1.0 ,
                     ),
                     SizedBox(height: AppSize.s10),
-                    Row(
-                      children: [
-                        Icon(Icons.bookmark_add, color: AppColor.bkashPurple,size: 30,),
-                        SizedBox(width: AppSize.s6,),
-                        Text("ফ্রী সেন্ড মানি'র জন্য ট্যাপ করুন ",
-                        style: TextStyle(color: AppColor.bkashPurple,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),),
+                    InkWell(
+                      onTap: (){},
+                      child: Row(
+                        children: [
+                          Icon(Icons.bookmark_add, color: AppColor.bkashPurple,size: 30,),
+                          SizedBox(width: AppSize.s6,),
+                          Text("ফ্রী সেন্ড মানি'র জন্য ট্যাপ করুন ",
+                          style: TextStyle(color: AppColor.bkashPurple,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),),
 
-                      ],
+                        ],
+                      ),
                     ),
                     SizedBox(height: AppSize.s6,),
                     Divider(
@@ -113,22 +119,22 @@ class SendMoneyView extends GetView<HomeController> {
                       color: AppColor.lightGrayColor,
                       thickness: 3.0,
                     ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: AppColor.bkashPurplelight,
-                          child: Icon(Icons.group,color: AppColor.bkashPurple,size: 30,),
-                        ),
-                        SizedBox(width: AppSize.s10,),
-                        Text('গ্রুপ সেন্ড মানি')
+                    InkWell(
+                      onTap: (){},
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: AppColor.bkashPurplelight,
+                            child: Icon(Icons.group,color: AppColor.bkashPurple,size: 30,),
+                          ),
+                          SizedBox(width: AppSize.s10,),
+                          Text('গ্রুপ সেন্ড মানি',
+                          style: TextStyle(color: AppColor.bkashPurple,fontSize: 16,fontWeight: FontWeight.bold),)
 
 
-
-
-
-
-                      ],
+                        ],
+                      ),
                     )
                     
                   ],

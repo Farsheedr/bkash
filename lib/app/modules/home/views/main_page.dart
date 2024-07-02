@@ -9,7 +9,7 @@ import 'package:untitled/app/styles/app_assets.dart';
 
 import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/custom_icon_button.dart'; // Import the custom icon button
+import '../widgets/custom_icon_button.dart';
 
 class MainView extends GetView<HomeController> {
   bool _isExpanded = false; // Track whether the grid is expanded or not
@@ -91,6 +91,7 @@ class MainView extends GetView<HomeController> {
             children: [
                Obx(() => AnimatedContainer(
                  duration: Duration(milliseconds: 300),
+                 curve: Curves.fastOutSlowIn,
                  height: controller.isExpanded.value ? null : 200.0,
                  child:  Column(
                    children: [
@@ -187,7 +188,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.blackColor,
                             label: 'এডুকেশন ফি',
                             onPressed: () {
-                              Get.toNamed(AppPages.INITIAL);
+                              Get.toNamed(AppPages.EDUCATION);
                             },
                           ),
                           CustomIconButton(

@@ -6,7 +6,7 @@ import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
 import '../models/school_list.dart';
 
-class HomeView extends GetView<HomeController> {
+class EducationView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,8 @@ class HomeView extends GetView<HomeController> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: AppColor.colorWhite),
           onPressed: () {
-            Get.toNamed(AppPages.MAIN);
+            Get.toNamed(AppPages.INITIAL);
+
           },
         ),
         title: Text(
