@@ -25,6 +25,7 @@ class MainView extends GetView<HomeController> {
             bottom: Radius.circular(20.0), // Adjust the radius as needed
           ),
           child: AppBar(
+            leading: SizedBox.shrink(),
             backgroundColor: AppColor.bkashPurple,
             flexibleSpace: Container(
               padding: EdgeInsets.all(16.0), // Adjust padding as needed
@@ -116,7 +117,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appGreen,
                             label: 'মোবাইল রিচার্জ',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.RECHARGE);
                             },
                           ),
                           CustomIconButton(
@@ -124,7 +125,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.cyan,
                             label: 'ক্যাশ আউট',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.CASH);
                             },
                           ),
                           CustomIconButton(
