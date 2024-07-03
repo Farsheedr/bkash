@@ -64,7 +64,9 @@ class AddMoneyView extends GetView<HomeController> {
             ),
             SizedBox(height: AppSize.s6,),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Get.toNamed(AppPages.ACCOUNT);
+              },
               child: Row(
                 children: [
                   Icon(Icons.food_bank_outlined ,color: AppColor.bkashPurple,size: 35,),

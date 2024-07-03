@@ -12,6 +12,20 @@ abstract class Routes {
   static const PAYMENT = _Paths.PAYMENT;
   static const ADD = _Paths.ADD;
   static const BILL = _Paths.BILL;
+  static const SAVINGS = _Paths.SAVINGS;
+  static const INSURANCE = _Paths.INSURANCE;
+  static const BANK = _Paths.BANK;
+  static const ACCOUNT = _Paths.ACCOUNT;
+  static const MICRO = _Paths.MICRO;
+  static const REQUEST = _Paths.REQUEST;
+  static const REMITTANCE = _Paths.REMITTANCE;
+
+
+
+
+
+
+
 
 
 
@@ -31,6 +45,19 @@ abstract class _Paths {
   static const PAYMENT = '/payment';
   static const ADD = '/add';
   static const BILL = '/bill';
+  static const SAVINGS = '/savings';
+  static const INSURANCE = '/insurance';
+  static const BANK = '/bkashtobank';
+  static const ACCOUNT = '/bankaccount';
+  static const MICRO = '/microfinance';
+  static const REQUEST = '/request';
+  static const REMITTANCE = '/remittance';
+
+
+
+
+
+
 
 
 

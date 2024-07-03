@@ -190,7 +190,7 @@ class EducationView extends GetView<HomeController> {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                controller.toggleSchoolList();
+                                controller.toggleList('school');
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(100, 100),
@@ -216,7 +216,7 @@ class EducationView extends GetView<HomeController> {
                             SizedBox(width: 10),
                             ElevatedButton(
                               onPressed: () {
-                                controller.toggleCollegeList();
+                                controller.toggleList('college');
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(100, 100),
@@ -242,7 +242,7 @@ class EducationView extends GetView<HomeController> {
                             SizedBox(width: 10),
                             ElevatedButton(
                               onPressed: () {
-                                controller.toggleUniversityList();
+                                controller.toggleList('university');
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(100, 100),
@@ -273,7 +273,7 @@ class EducationView extends GetView<HomeController> {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                controller.toggleTrainingList();
+                                controller.toggleList('training');
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(100, 100),
@@ -299,7 +299,7 @@ class EducationView extends GetView<HomeController> {
                             SizedBox(width: 10),
                             ElevatedButton(
                               onPressed: () {
-                                controller.toggleOtherList();
+                                controller.toggleList('other');
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(100, 100),
@@ -332,7 +332,7 @@ class EducationView extends GetView<HomeController> {
                         SizedBox(height: 8),
                         Obx(() {
 
-                          if (controller.showSchoolList.value) {
+                          if (controller.isListOpen('school')) {
                             return ListView.builder(
                               shrinkWrap: true,
                               itemCount: schools.length,
@@ -369,7 +369,7 @@ class EducationView extends GetView<HomeController> {
 
                         Obx(() {
 
-                          if (controller.showCollegeList.value) {
+                          if (controller.isListOpen('college')) {
                             return ListView.builder(
                               shrinkWrap: true,
                               itemCount: college.length,
@@ -404,7 +404,7 @@ class EducationView extends GetView<HomeController> {
                         }),
                         Obx(() {
 
-                          if (controller.showUniversityList.value) {
+                          if (controller.isListOpen('university')) {
                             return ListView.builder(
                               shrinkWrap: true,
                               itemCount: university.length,
@@ -439,7 +439,7 @@ class EducationView extends GetView<HomeController> {
                         }),
                         Obx(() {
 
-                          if (controller.showTrainingList.value) {
+                          if (controller.isListOpen('training')) {
                             return ListView.builder(
                               shrinkWrap: true,
                               itemCount: training.length,
@@ -474,7 +474,7 @@ class EducationView extends GetView<HomeController> {
                         }),
                         Obx(() {
 
-                          if (controller.showOtherList.value) {
+                          if (controller.isListOpen('other')) {
                             return ListView.builder(
                               shrinkWrap: true,
                               itemCount: other.length,

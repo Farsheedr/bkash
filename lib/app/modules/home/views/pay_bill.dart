@@ -166,47 +166,47 @@ class PayBillView extends GetView<HomeController> {
                         ];
                         final List<VoidCallback> buttonActions = [
                               () {
-                                controller.toggleElectricList();
+                                controller.toggleList('electric');
 
                           },
                               () {
-                                controller.toggleGasList();
+                                controller.toggleList('gas');
 
 
                           },
                               () {
-                                controller.toggleWaterList();
+                                controller.toggleList('water');
 
                           },
                               () {
-                                controller.toggleInternetList();
+                                controller.toggleList('internet');
                           },
                               () {
-                                controller.toggleTelephoneList();
+                                controller.toggleList('telephone');
                           },
                               () {
-                                controller.toggleTvList();
+                                controller.toggleList('tv');
                           },
                               () {
-                                controller.toggleCreditList();
+                                controller.toggleList('credit');
                           },
                               () {
-                                controller.toggleGovernmentList();
+                                controller.toggleList('government');
                           },
                               () {
-                                controller.toggleInsuranceList();
+                                controller.toggleList('insurance');
                           },
                               () {
-                                controller.toggleTrackerList();
+                                controller.toggleList('tracker');
                           },
                               () {
-                                controller.toggleOther2List();
+                                controller.toggleList('other2');
                           },
                         ];
                         final List<IconData> icons = [
                           Icons.lightbulb_outline,
                           Icons.local_gas_station_outlined,
-                          Icons.water_damage_outlined,
+                          Icons.water_drop_outlined,
                           Icons.wifi_outlined,
                           Icons.phone_outlined,
                           Icons.tv_outlined,
@@ -230,7 +230,7 @@ class PayBillView extends GetView<HomeController> {
                     ),
                     Obx(() {
 
-                      if (controller.showElectricList.value) {
+                      if (controller.isListOpen('electric')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: electric.length,
@@ -265,7 +265,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showGasList.value) {
+                      if (controller.isListOpen('gas')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: gas.length,
@@ -300,7 +300,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showWaterList.value) {
+                      if (controller.isListOpen('water')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: water.length,
@@ -335,7 +335,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showInternetList.value) {
+                      if (controller.isListOpen('internet')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: internet.length,
@@ -370,7 +370,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showTelephoneList.value) {
+                      if (controller.isListOpen('telephone')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: telephone.length,
@@ -405,7 +405,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showTvList.value) {
+                      if (controller.isListOpen('tv')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: tv.length,
@@ -440,7 +440,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showCreditList.value) {
+                      if (controller.isListOpen('credit')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: credit.length,
@@ -475,7 +475,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showGovernmentList.value) {
+                      if (controller.isListOpen('government')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: government.length,
@@ -510,7 +510,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showInsuranceList.value) {
+                      if (controller.isListOpen('insurance')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: insurance .length,
@@ -545,7 +545,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showTrackerList.value) {
+                      if (controller.isListOpen('tracker')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: tracker.length,
@@ -580,7 +580,7 @@ class PayBillView extends GetView<HomeController> {
                     }),
                     Obx(() {
 
-                      if (controller.showOther2List.value) {
+                      if (controller.isListOpen('other2')) {
                         return ListView.builder(
                           shrinkWrap: true,
                           itemCount: other2.length,

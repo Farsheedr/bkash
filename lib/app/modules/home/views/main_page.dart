@@ -12,7 +12,7 @@ import '../controllers/home_controller.dart';
 import '../widgets/custom_icon_button.dart';
 
 class MainView extends GetView<HomeController> {
-  bool _isExpanded = false; // Track whether the grid is expanded or not
+
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +157,7 @@ class MainView extends GetView<HomeController> {
                             iconColor:Colors.deepPurple,
                             label: 'সেভিংস',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.SAVINGS);
                             },
                           ),
                           CustomIconButton(
@@ -165,7 +165,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: Colors.brown,
                             label: 'লোন',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              ;
                             },
                           ),
                           CustomIconButton(
@@ -173,7 +173,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appBlue,
                             label: 'ইনসিওরেন্স',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.INSURANCE);
                             },
                           ),
                           CustomIconButton(
@@ -181,7 +181,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appRed,
                             label: 'বিকাশ টু ব্যাংক',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.BANK);
                             },
                           ),
                           CustomIconButton(
@@ -197,7 +197,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.bkashPurplelight,
                             label: 'মাইক্রোফাইনান্স',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.MICRO);
                             },
                           ),
                           CustomIconButton(
@@ -205,7 +205,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appRed,
                             label: 'রিকুোয়েষট মানি ',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.REQUEST);
                             },
                           ),
                           CustomIconButton(
@@ -213,7 +213,7 @@ class MainView extends GetView<HomeController> {
                             iconColor: AppColor.appGreen,
                             label: 'রেমিটেন্স  ',
                             onPressed: () {
-                              // Add your onPressed logic here
+                              Get.toNamed(AppPages.REMITTANCE);
                             },
                           ),
                           CustomIconButton(
@@ -494,7 +494,7 @@ class MainView extends GetView<HomeController> {
                                 imagePath: AppAssets.gameLogo,
                                 text: 'গেমস্টার', onTap: () {  },
                               ),
-                              // Add more ImageTextItem widgets as needed
+
                             ],
                           ),
 
@@ -623,6 +623,7 @@ class MainView extends GetView<HomeController> {
     children: [
     CustomIconButton(
     icon: Icons.airplane_ticket,
+    iconColor: AppColor.appYellow,
     label: 'টিকেট ',
     onPressed: () {
 
@@ -637,42 +638,49 @@ class MainView extends GetView<HomeController> {
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.favorite_border_outlined,
+    iconColor: AppColor.bkashPurple,
     label: 'ডোনেশন',
     onPressed: () {
     // Add your onPressed logic here
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.local_hospital,
+    iconColor: AppColor.appBlue,
+
     label: ' ইনসিওরেন্স প্লান ',
     onPressed: () {
     // Add your onPressed logic here
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.gamepad ,
+    iconColor: AppColor.appBlue,
     label: 'গেমস',
     onPressed: () {
     // Add your onPressed logic here
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.flight,
+    iconColor: AppColor.appYellow,
     label: 'ট্রাভেল',
     onPressed: () {
     // Add your onPressed logic here
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.mosque,
+    iconColor: AppColor.appGreen,
     label: 'দ্বীন',
     onPressed: () {
     // Add your onPressed logic here
     },
     ),
     CustomIconButton(
-    icon: Icons.search_outlined,
+    icon: Icons.attach_money_outlined,
+    iconColor: AppColor.appGreen,
     label: 'বিডি ট্যাক্স ',
     onPressed: () {
     // Add your onPressed logic here

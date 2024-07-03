@@ -38,6 +38,15 @@ class AppAssets{
   static String get amyLogo=> "assets/images/amy.jpg";
   static String get zayanLogo=> "assets/images/gozayan.jpeg";
   static String get onmobileLogo=> "assets/images/onmobile.png";
+  static String get palliLogo=> "assets/images/palli.png";
+  static String get descoLogo=> "assets/images/desco.png";
+  static String get nescoLogo=> "assets/images/NESCO.png";
+  static String get dpdcLogo=> "assets/images/dpdc.png";
+  static String get bpdbLogo=> "assets/images/bpdb.png";
+
+
+
+
 
 
 

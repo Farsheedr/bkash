@@ -13,11 +13,11 @@ class Electric {
   });
 }
 List<Electric> electric= [
-  Electric(name: "Palli Bidyut", assetImage: AppAssets.vnsLogo,type: 'বিদ্যুৎ '),
-  Electric(name: " DESCO", assetImage: AppAssets.moniLogo,type:"বিদ্যুৎ"),
-  Electric(name: "NESCO", assetImage: AppAssets.idealLogo,type: "বিদ্যুৎ"),
-  Electric(name: "DPDC", assetImage: AppAssets.ndcLogo,type:'বিদ্যুৎ'),
-  Electric(name: "BPDB", assetImage: AppAssets.gregoryLogo,type: 'বিদ্যুৎ'),
+  Electric(name: "Palli Bidyut", assetImage: AppAssets.palliLogo,type: 'বিদ্যুৎ '),
+  Electric(name: " DESCO", assetImage: AppAssets.descoLogo,type:"বিদ্যুৎ"),
+  Electric(name: "NESCO", assetImage: AppAssets.nescoLogo,type: "বিদ্যুৎ"),
+  Electric(name: "DPDC", assetImage: AppAssets.dpdcLogo,type:'বিদ্যুৎ'),
+  Electric(name: "BPDB", assetImage: AppAssets.bpdbLogo,type: 'বিদ্যুৎ'),
 ];
 class Gas {
   final String name;
