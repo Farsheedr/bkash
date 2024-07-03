@@ -31,11 +31,11 @@ class Gas {
   });
 }
 List<Gas> gas= [
-  Gas(name: "Titas Gas Postpaid", assetImage: AppAssets.vnsLogo,type: ' গ্যাস'),
-  Gas(name: " Karnaphuli Gas", assetImage: AppAssets.moniLogo,type:"গ্যাস"),
-  Gas(name: "Jalalabad Gas", assetImage: AppAssets.idealLogo,type: "গ্যাস"),
-  Gas(name: "Sundarban Gas", assetImage: AppAssets.ndcLogo,type:'গ্যাস'),
-  Gas(name: "Paschimanchal Gas", assetImage: AppAssets.gregoryLogo,type: 'গ্যাস'),
+  Gas(name: "Titas Gas Postpaid", assetImage: AppAssets.titasLogo,type: ' গ্যাস'),
+  Gas(name: " Karnaphuli Gas", assetImage: AppAssets.karnaLogo,type:"গ্যাস"),
+  Gas(name: "Jalalabad Gas", assetImage: AppAssets.jalalLogo,type: "গ্যাস"),
+  Gas(name: "Sundarban Gas", assetImage: AppAssets.sgcl,type:'গ্যাস'),
+  Gas(name: "Paschimanchal Gas", assetImage: AppAssets.paschimLogo,type: 'গ্যাস'),
 ];
 
 class Water {
@@ -50,10 +50,10 @@ class Water {
   });
 }
 List<Water> water= [
-  Water(name: "Dhaka WASA", assetImage: AppAssets.vnsLogo,type: ' পানি'),
-  Water(name: " Chattogram WASA", assetImage: AppAssets.moniLogo,type:"পানি"),
-  Water(name: "Rajshahi WASA", assetImage: AppAssets.idealLogo,type: "পানি"),
-  Water(name: "Khulna WASA", assetImage: AppAssets.ndcLogo,type:'পানি'),
+  Water(name: "Dhaka WASA", assetImage: AppAssets.dwasaLogo,type: ' পানি'),
+  Water(name: " Chattogram WASA", assetImage: AppAssets.cwasaLogo,type:"পানি"),
+  Water(name: "Rajshahi WASA", assetImage: AppAssets.rwasaLogo,type: "পানি"),
+  Water(name: "Khulna WASA", assetImage: AppAssets.kwasaLogo,type:'পানি'),
 
 ];
 
@@ -69,11 +69,11 @@ class Internet {
   });
 }
 List<Internet> internet= [
-  Internet(name: "Link3", assetImage: AppAssets.vnsLogo,type: ' ইন্টারনেট '),
-  Internet(name: " AmberIT", assetImage: AppAssets.moniLogo,type:"ইন্টারনেট"),
-  Internet(name: "Carnival", assetImage: AppAssets.idealLogo,type: "ইন্টারনেট"),
-  Internet(name: "SamOnline", assetImage: AppAssets.ndcLogo,type:'ইন্টারনেট'),
-  Internet(name: "Triangle", assetImage: AppAssets.ndcLogo,type:'ইন্টারনেট'),
+  Internet(name: "Link3", assetImage: AppAssets.linkLogo,type: ' ইন্টারনেট '),
+  Internet(name: " AmberIT", assetImage: AppAssets.amberLogo,type:"ইন্টারনেট"),
+  Internet(name: "Carnival", assetImage: AppAssets.carnivalLogo,type: "ইন্টারনেট"),
+  Internet(name: "SamOnline", assetImage: AppAssets.samLogo,type:'ইন্টারনেট'),
+  Internet(name: "Triangle", assetImage: AppAssets.triangleLogo,type:'ইন্টারনেট'),
 
 
 ];

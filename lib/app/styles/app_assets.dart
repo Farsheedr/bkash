@@ -43,6 +43,44 @@ class AppAssets{
   static String get nescoLogo=> "assets/images/NESCO.png";
   static String get dpdcLogo=> "assets/images/dpdc.png";
   static String get bpdbLogo=> "assets/images/bpdb.png";
+  static String get agraniLogo=> "assets/images/agrani.png";
+  static String get abLogo=> "assets/images/ab.png";
+  static String get bracLogo=> "assets/images/brac.png";
+  static String get bdblLogo=> "assets/images/bdbl.png";
+  static String get cityLogo=> "assets/images/city.png";
+  static String get titasLogo=> "assets/images/titas.png";
+  static String get karnaLogo=> "assets/images/karnaphuli.jpg";
+  static String get jalalLogo=> "assets/images/jalalabad.jpg";
+  static String get sgcl=> "assets/images/sgcl.png";
+  static String get paschimLogo=> "assets/images/paschim.jpg";
+  static String get dwasaLogo=> "assets/images/dhakawasa.png";
+  static String get cwasaLogo=> "assets/images/ctgwasa.png";
+  static String get rwasaLogo=> "assets/images/rajshahiwasa.jpg";
+  static String get kwasaLogo=> "assets/images/khulnawasa.png";
+  static String get linkLogo=> "assets/images/link3.png";
+  static String get amberLogo=> "assets/images/amber.jpg";
+  static String get carnivalLogo=> "assets/images/carnival.jpg";
+  static String get samLogo=> "assets/images/sam.jpg";
+  static String get triangleLogo=> "assets/images/triangle.jpg";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

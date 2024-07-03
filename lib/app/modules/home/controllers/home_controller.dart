@@ -43,6 +43,7 @@ class HomeController extends GetxController {
   RxInt carouselIndex=0.obs;
   var containerHeight = 200.0.obs;
   RxBool showBalance = false.obs;
+  var selectedIndex = 0.obs;
 
   void toggleList(String listName){
     if(currentlyOpenList == listName){

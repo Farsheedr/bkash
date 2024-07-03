@@ -137,6 +137,9 @@ class RemittanceView extends GetView<HomeController> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
+                                        onTap: () {
+                                          // Handle onTap
+                                        },
 
                                       );
                                     }

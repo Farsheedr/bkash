@@ -11,6 +11,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   carousel_slider: ^4.2.1
   dots_indicator: ^3.0.0
+  side_sheet: ^1.0.4
   flutter: 
     sdk: flutter
 

@@ -19,6 +19,13 @@ abstract class Routes {
   static const MICRO = _Paths.MICRO;
   static const REQUEST = _Paths.REQUEST;
   static const REMITTANCE = _Paths.REMITTANCE;
+  static const SUPPORT = _Paths.SUPPORT;
+  static const TICKET = _Paths.TICKET;
+  static const DONATION = _Paths.DONATION;
+
+
+
+
 
 
 
@@ -52,6 +59,14 @@ abstract class _Paths {
   static const MICRO = '/microfinance';
   static const REQUEST = '/request';
   static const REMITTANCE = '/remittance';
+  static const SUPPORT = '/support';
+  static const TICKET = '/ticket';
+  static const DONATION = '/donation';
+
+
+
+
+
 
 
 

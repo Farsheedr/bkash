@@ -3,6 +3,7 @@ import 'package:untitled/app/modules/home/views/add_money.dart';
 import 'package:untitled/app/modules/home/views/bank_account.dart';
 import 'package:untitled/app/modules/home/views/bkash_to_bank_view.dart';
 import 'package:untitled/app/modules/home/views/cash_out.dart';
+import 'package:untitled/app/modules/home/views/donation.dart';
 import 'package:untitled/app/modules/home/views/microfinance.dart';
 import 'package:untitled/app/modules/home/views/pay_bill.dart';
 import 'package:untitled/app/modules/home/views/payment.dart';
@@ -10,6 +11,8 @@ import 'package:untitled/app/modules/home/views/remittance.dart';
 import 'package:untitled/app/modules/home/views/request_money.dart';
 import 'package:untitled/app/modules/home/views/savings.dart';
 import 'package:untitled/app/modules/home/views/send_money_view.dart';
+import 'package:untitled/app/modules/home/views/support.dart';
+import 'package:untitled/app/modules/home/views/ticket.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/education_view.dart';
@@ -39,6 +42,13 @@ class AppPages {
   static const MICRO = Routes.MICRO;
   static const REQUEST = Routes.REQUEST;
   static const REMITTANCE = Routes.REMITTANCE;
+  static const SUPPORT = Routes.SUPPORT;
+  static const TICKET = Routes.TICKET;
+  static const DONATION = Routes.DONATION;
+
+
+
+
 
 
 
@@ -135,5 +145,21 @@ class AppPages {
       page: () =>  RemittanceView(),
       binding: HomeBinding(),
     ),
+    GetPage(
+      name: _Paths.SUPPORT,
+      page: () =>  SupportView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.TICKET,
+      page: () =>  TicketView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.DONATION,
+      page: () =>  DonationView(),
+      binding: HomeBinding(),
+    ),
+
   ];
 }

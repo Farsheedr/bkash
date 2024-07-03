@@ -76,7 +76,9 @@ class SendMoneyView extends GetView<HomeController> {
                     ),
                     SizedBox(height: AppSize.s10,),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+
+                      },
                       child: Row(
                         children: [
                           Icon(Icons.change_circle_outlined,color: AppColor.bkashPurple,size: 30,),

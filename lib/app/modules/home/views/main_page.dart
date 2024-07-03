@@ -1,34 +1,30 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:untitled/app/modules/home/widgets/offer_list.dart';
-import 'package:untitled/app/modules/home/widgets/suggestion_list.dart';
-import 'package:untitled/app/routes/app_pages.dart';
-import 'package:untitled/app/styles/app_assets.dart';
-
-import '../../../styles/app_style.dart';
+import '../../../routes/app_pages.dart';
+import '../../../styles/app_assets.dart';
 import '../controllers/home_controller.dart';
+import '../../../styles/app_style.dart';
 import '../widgets/custom_icon_button.dart';
+import '../widgets/custom_popup_menu.dart';
+import '../widgets/offer_list.dart';
+import '../widgets/suggestion_list.dart';
 
 class MainView extends GetView<HomeController> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bgRedWhite,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.0), // Set the height of the AppBar here
+        preferredSize: Size.fromHeight(80.0),
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20.0), // Adjust the radius as needed
+            bottom: Radius.circular(20.0),
           ),
           child: AppBar(
             leading: SizedBox.shrink(),
             backgroundColor: AppColor.bkashPurple,
             flexibleSpace: Container(
-              padding: EdgeInsets.all(16.0), // Adjust padding as needed
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -44,7 +40,7 @@ class MainView extends GetView<HomeController> {
                           color: AppColor.bkashPurple,
                         ),
                       ),
-                      SizedBox(width: 8.0), // Space between avatar and text
+                      SizedBox(width: 8.0),
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,12 +67,16 @@ class MainView extends GetView<HomeController> {
                           ),
                         ],
                       ),
-                      SizedBox(width: AppSize.s100),
-                      Icon(
-                        Icons.price_change_outlined,
-                        size: 40,
-                        color: AppColor.colorWhite,
-                      )
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(Icons.menu,color:Colors.white
+
+                        ),
+                        onPressed: (){
+                          _showSideModalSheet(context);
+                        },
+
+                      ),
                     ],
                   ),
                 ],
@@ -90,19 +90,19 @@ class MainView extends GetView<HomeController> {
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-               Obx(() => AnimatedContainer(
-                 duration: Duration(milliseconds: 300),
-                 curve: Curves.fastOutSlowIn,
-                 height: controller.isExpanded.value ? null : 200.0,
-                 child:  Column(
-                   children: [
-                     controller.isExpanded.value || controller.containerHeight.value>200.0
-                      ? GridView.count(
+              Obx(() => AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.fastOutSlowIn,
+                height: controller.isExpanded.value ? null : 200.0,
+                child: Column(
+                  children: [
+                    if (controller.isExpanded.value || controller.containerHeight.value > 200.0)
+                      GridView.count(
                         physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true, // Wrap content inside the ExpansionTile
-                        crossAxisCount: 4, // Number of columns in the grid
-                        crossAxisSpacing: 5.0, // Spacing between columns
-                        mainAxisSpacing: 5.0, // Spacing between rows
+                        shrinkWrap: true,
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
                         children: [
                           CustomIconButton(
                             icon: Icons.monetization_on_outlined,
@@ -154,7 +154,7 @@ class MainView extends GetView<HomeController> {
                           ),
                           CustomIconButton(
                             icon: Icons.savings,
-                            iconColor:Colors.deepPurple,
+                            iconColor: Colors.deepPurple,
                             label: 'সেভিংস',
                             onPressed: () {
                               Get.toNamed(AppPages.SAVINGS);
@@ -164,9 +164,7 @@ class MainView extends GetView<HomeController> {
                             icon: Icons.attach_money_outlined,
                             iconColor: Colors.brown,
                             label: 'লোন',
-                            onPressed: () {
-                              ;
-                            },
+                            onPressed: () {},
                           ),
                           CustomIconButton(
                             icon: Icons.monetization_on_outlined,
@@ -224,72 +222,27 @@ class MainView extends GetView<HomeController> {
                             },
                           ),
                         ],
-                      ):SizedBox.shrink(),
-                   ],
-                 )
-
-               )
-               ),
-              SizedBox(height: 20), // Space between grid and carousel slider
+                      ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   controller.isExpanded.value = !controller.isExpanded.value;
-                  controller.containerHeight.value = controller.isExpanded.value ? 400.0 : 200.0;// Toggle the expansion state
+                  controller.containerHeight.value = controller.isExpanded.value ? 400.0 : 200.0;
                 },
-                child: Obx(() =>
-                    Text(controller.isExpanded.value ? 'বন্ধ করুন' : 'আরো দেখুন',
-                      style: TextStyle(
-                          color: AppColor.bkashPurple
-                      ),),
-                ),
-                style: ElevatedButton.styleFrom(backgroundColor: AppColor.colorWhite,),
-
-              ),
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 200.0,
-                  enlargeCenterPage: true,
-                  autoPlay: false,
-                  aspectRatio: 16/9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8,
-                  onPageChanged: (index, reason){
-                    controller.updateCarouselIndex(index);
-
-                  }
-                ),
-                items: [
-                  AppAssets.carousel1,
-                  AppAssets.carousel2,
-                  AppAssets.carousel3,
-                  AppAssets.carousel4,
-                ].map((item) => Container(
-                  child: Center(
-                    child: Image.asset(
-                      item,
-                      fit: BoxFit.cover,
-                      width: 1000,
-                    ),
+                child: Obx(() => Text(
+                  controller.isExpanded.value ? 'বন্ধ করুন' : 'আরো দেখুন',
+                  style: TextStyle(
+                    color: AppColor.bkashPurple,
                   ),
-                )).toList(),
-              ),
-              DotsIndicator(
-                dotsCount: 4, // Number of dots
-                position: controller.carouselIndex.value, // Current dot position
-                decorator: DotsDecorator(
-                  size: const Size.square(9.0), // Size of each dot
-                  activeSize: const Size(18.0, 9.0), // Size of the active dot
-                  color: Colors.grey, // Inactive dot color
-                  activeColor: AppColor.bkashPurple, // Active dot color
-                  spacing: EdgeInsets.all(3.0), // Spacing between dots
-                  activeShape: RoundedRectangleBorder( // Shape of the active dot
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
+                )),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColor.colorWhite,
                 ),
               ),
-              SizedBox(height: AppSize.s10,),
+              SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -299,115 +252,77 @@ class MainView extends GetView<HomeController> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: AppColor.lightGrayColor,
+                    Row(
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text('সাজেশন   '),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'আমার বিকাশ ',
+                        Spacer(),
+                        InkWell(
+                          onTap: () {
+                            // Add your onTap logic here
+                          },
+                          child: Text(
+                            'সব দেখুন',
+                            style: TextStyle(
+                              color: AppColor.bkashPurple,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    SizedBox(height: AppSize.s8),
+                    SizedBox(height: 10),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: GestureDetector(
-                              child: Container(
-                                height: Get.height / 4.25,
-                                width: Get.width / 2.5,
-                                padding: EdgeInsets.all(25.0),
-                                decoration: BoxDecoration(
-                                  color: AppColor.bkashPurplelight,
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    color: AppColor.grayLightColor,
-                                  ),
-                                ),
-                                child: GestureDetector(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Icon(Icons.money),
-                                      SizedBox(
-                                        height: AppSize.s10,
-                                      ),
-                                      Text('২৫ টাকা ক্যাশব্যাক!'),
-                                      SizedBox(height: AppSize.s10),
-                                      Text('প্রথমবার মোবাইল রিচার্জে'),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
+                          SuggestionList(
+                            imagePath: AppAssets.quizLogo,
+                            text: 'কুইজগিরি',
+                            onTap: () {},
                           ),
-                          SizedBox(width: AppSize.s10),
-                          Column(
-                            children: [
-                              Container(
-                                height: Get.height / 8.75,
-                                padding: EdgeInsets.only(top: 5),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: AppColor.lightGrayColor),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 8.0), // Adjust padding as needed
-                                      child: Icon(Icons.person_3_outlined),
-                                    ),
-                                    SizedBox(width: AppSize.s10),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('তথ্য ও সহায়তার জন্য'),
-                                        SizedBox(height: AppSize.s6),
-                                        Text('যোগাযোগ করতে ট্যাপ করুন'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: AppSize.s10),
-                              Container(
-                                height: Get.height / 8.75,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: AppColor.lightGrayColor),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 8.0), // Adjust padding as needed
-                                      child: Icon(Icons.video_call_outlined),
-                                    ),
-                                    SizedBox(width: AppSize.s10),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('বিকাশ ব্যাবহার শিখতে'),
-                                        SizedBox(height: AppSize.s6),
-                                        Text('টিউটরিয়াল দেখুন'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                          SuggestionList(
+                            imagePath: 'assets/images/image2.png',
+                            text: 'কুইজমাসটার ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.minLogo,
+                            text: 'টেন মিনিট স্কুল',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.darazLogo,
+                            text: 'দারাজ ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.railwayLogo,
+                            text: 'বাংলাদেশ রেলওয়ে ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.shadhinLogo,
+                            text: 'স্বাধীন ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.toffeeLogo,
+                            text: 'টফি ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.shongjogLogo,
+                            text: 'সংযোগ',
+                            onTap: () {},
+                          ),
+                          SuggestionList(
+                            imagePath: AppAssets.gameLogo,
+                            text: 'গেমস্টার',
+                            onTap: () {},
                           ),
                         ],
                       ),
@@ -415,9 +330,7 @@ class MainView extends GetView<HomeController> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: AppSize.s10,
-              ),
+              SizedBox(height: 6),
               Column(
                 children: [
                   Container(
@@ -435,9 +348,7 @@ class MainView extends GetView<HomeController> {
                           children: [
                             Align(
                               alignment: Alignment.topLeft,
-                              child: Text(
-                                  'সাজেশন   '
-                              ),
+                              child: Text(' অফার  '),
                             ),
                             Spacer(),
                             InkWell(
@@ -453,141 +364,45 @@ class MainView extends GetView<HomeController> {
                             ),
                           ],
                         ),
-                        SizedBox(height: AppSize.s10),
+                        SizedBox(height: 6),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              SuggestionList(
-                                imagePath: AppAssets.quizLogo,
-                                text: 'কুইজগিরি', onTap: () {  },
+                              OfferList(
+                                imagePath: AppAssets.medixLogo,
+                                text: '২০% ক্যাশব্যাক',
+                                onTap: () {},
+                                subtext: 'মেডি',
                               ),
-                              SuggestionList(
-                                imagePath: 'assets/images/image2.png',
-                                text: 'কুইজমাসটার ', onTap: () {  },
+                              SizedBox(width: 8),
+                              OfferList(
+                                imagePath: AppAssets.zayanLogo,
+                                text: '৬৫% ডিসকাউনট',
+                                onTap: () {},
+                                subtext: 'গোজায়ান ',
                               ),
-                              SuggestionList(
-                                imagePath: AppAssets.minLogo,
-                                text: 'টেন মিনিট স্কুল', onTap: () {  },
+                              SizedBox(width: 8),
+                              OfferList(
+                                imagePath: AppAssets.amyLogo,
+                                text: '১৫% ডিসকাউনট',
+                                onTap: () {},
+                                subtext: 'এমি ট্রাভেল ',
                               ),
-                              SuggestionList(
-                                imagePath: AppAssets.darazLogo,
-                                text: 'দারাজ ', onTap: () {  },
+                              SizedBox(width: 8),
+                              OfferList(
+                                imagePath: AppAssets.onmobileLogo,
+                                text: 'বাইক জিতুন',
+                                onTap: () {},
+                                subtext: 'অনমোবাইল ',
                               ),
-                              SuggestionList(
-                                imagePath: AppAssets.railwayLogo,
-                                text: 'বাংলাদেশ রেলওয়ে ', onTap: () {  },
-                              ),
-                              SuggestionList(
-                                imagePath: AppAssets.shadhinLogo,
-                                text: 'স্বাধীন ', onTap: () {  },
-                              ),
-                              SuggestionList(
-                                imagePath: AppAssets.toffeeLogo,
-                                text:' টফি ', onTap: () {  },
-                              ),
-                              SuggestionList(
-                                imagePath: AppAssets.shongjogLogo,
-                                text: 'সংযোগ', onTap: () {  },
-                              ),
-                              SuggestionList(
-                                imagePath: AppAssets.gameLogo,
-                                text: 'গেমস্টার', onTap: () {  },
-                              ),
-
                             ],
                           ),
-
                         ),
                       ],
-
                     ),
-
                   ),
-                  SizedBox(height: AppSize.s6,),
-                  Column(
-                      children: [
-                  Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColor.lightGrayColor,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                                ' অফার  '
-                            ),
-                          ),
-                          Spacer(),
-                          InkWell(
-                            onTap: () {
-                              // Add your onTap logic here
-                            },
-                            child: Text(
-                              'সব দেখুন',
-                              style: TextStyle(
-                                color: AppColor.bkashPurple,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: AppSize.s6),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            OfferList(
-                              imagePath: AppAssets.medixLogo,
-                              text: '২০% ক্যাশব্যাক', onTap: () {  },
-                              subtext: 'মেডি',
-                            ),
-                            SizedBox(width: AppSize.s8,),
-                            OfferList(
-                              imagePath: AppAssets.zayanLogo,
-                              text: '৬৫% ডিসকাউনট', onTap: () {  },
-                              subtext: 'গোজায়ান ',
-                            ),
-                            SizedBox(width: AppSize.s8,),
-                            OfferList(
-                              imagePath: AppAssets.amyLogo,
-                              text: '১৫% ডিসকাউনট', onTap: () {  },
-                              subtext: 'এমি ট্রাভেল ',
-                            ),
-                            SizedBox(width: AppSize.s8,),
-                            OfferList(
-                              imagePath: AppAssets.onmobileLogo,
-                              text: 'বাইক জিতুন', onTap: () {  },
-                              subtext: 'অনমোবাইল ',
-                            )
-
-
-                          ],
-                        ),
-                      )
-
-
-                ],
-              ),
-
-
-
-
-
-
-
-    )
-                      ],
-          ),
-                  SizedBox(height: AppSize.s6,),
+                  SizedBox(height: 6),
                   Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -599,106 +414,138 @@ class MainView extends GetView<HomeController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                    Row(
-                    children: [
-                    Align(
-                    alignment: Alignment.topLeft,
-                      child: Text(
-                          ' অন্যান্য সেবাসমূহ   '
-                      ),
+                        Row(
+                          children: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(' অন্যান্য সেবাসমূহ   '),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-
-                  ])
-        ]),
-    ),
-    Column(
-    children: [
-
-    GridView.count(
-    physics: NeverScrollableScrollPhysics(),
-    shrinkWrap: true, // Wrap content inside the ExpansionTile
-    crossAxisCount: 4, // Number of columns in the grid
-    crossAxisSpacing: 5.0, // Spacing between columns
-    mainAxisSpacing: 5.0, // Spacing between rows
-    children: [
-    CustomIconButton(
-    icon: Icons.airplane_ticket,
-    iconColor: AppColor.appYellow,
-    label: 'টিকেট ',
-    onPressed: () {
-
-
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.search_outlined,
-    label: 'জিপি ফ্লেক্সিপ্লান',
-    onPressed: () {
-
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.favorite_border_outlined,
-    iconColor: AppColor.bkashPurple,
-    label: 'ডোনেশন',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.local_hospital,
-    iconColor: AppColor.appBlue,
-
-    label: ' ইনসিওরেন্স প্লান ',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.gamepad ,
-    iconColor: AppColor.appBlue,
-    label: 'গেমস',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.flight,
-    iconColor: AppColor.appYellow,
-    label: 'ট্রাভেল',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.mosque,
-    iconColor: AppColor.appGreen,
-    label: 'দ্বীন',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-    CustomIconButton(
-    icon: Icons.attach_money_outlined,
-    iconColor: AppColor.appGreen,
-    label: 'বিডি ট্যাক্স ',
-    onPressed: () {
-    // Add your onPressed logic here
-    },
-    ),
-
-    ]
-    )
-        ]
-    )
-          ]
-              )
-        ]
-    )
-      )
-      )
+                  ),
+                  Column(
+                    children: [
+                      GridView.count(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
+                        children: [
+                          CustomIconButton(
+                            icon: Icons.airplane_ticket,
+                            iconColor: AppColor.appYellow,
+                            label: 'টিকেট ',
+                            onPressed: () {
+                              Get.toNamed(AppPages.TICKET);
+                            },
+                          ),
+                          CustomIconButton(
+                            icon: Icons.search_outlined,
+                            label: 'জিপি ফ্লেক্সিপ্লান',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.favorite_border_outlined,
+                            iconColor: AppColor.bkashPurple,
+                            label: 'ডোনেশন',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.local_hospital,
+                            iconColor: AppColor.appBlue,
+                            label: ' ইনসিওরেন্স প্লান ',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.gamepad,
+                            iconColor: AppColor.appBlue,
+                            label: 'গেমস',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.flight,
+                            iconColor: AppColor.appYellow,
+                            label: 'ট্রাভেল',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.mosque,
+                            iconColor: AppColor.appGreen,
+                            label: 'দ্বীন',
+                            onPressed: () {},
+                          ),
+                          CustomIconButton(
+                            icon: Icons.attach_money_outlined,
+                            iconColor: AppColor.appGreen,
+                            label: 'বিডি ট্যাক্স ',
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'হোম ',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code ),
+            label: 'QR স্ক্যান ',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.email),
+            label: ' ইনবক্স',
+          ),
+        ],
+        currentIndex: controller.selectedIndex.value,
+        selectedItemColor: AppColor.bkashPurple,
+        onTap: (index) {
+          controller.selectedIndex.value = index;
+        },
+      ),
     );
-
-
   }
+}
+void _showSideModalSheet(BuildContext context) {
+  showModalBottomSheet(
+
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent, // Make background transparent for sliding animation
+    builder: (BuildContext context) {
+      return FractionallySizedBox(
+        heightFactor: 0.85, // Adjust height as needed
+        alignment: Alignment.centerRight,
+        child: SingleChildScrollView(
+          child: Container(
+            height:Get.size.height, // Adjust height as needed
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the desired background color
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.0),
+                bottomLeft: Radius.circular(16.0),
+              ),
+            ),
+            child: SideModalSheet(
+              onSelected: (String result) {
+                // Handle selected item if needed
+                Navigator.pop(context); // Close the modal sheet on item selection
+              },
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
