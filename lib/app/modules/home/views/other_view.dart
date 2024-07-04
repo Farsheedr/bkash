@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/home/widgets/side_menu.dart';
 import 'package:untitled/app/styles/app_assets.dart';
 
 import '../../../styles/app_style.dart';
@@ -22,7 +23,19 @@ class OtherView extends GetView<HomeController> {
           ),
           centerTitle: true,
           backgroundColor: AppColor.bkashPurple,
+          actions: [
+            Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.menu, color: Colors.white),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+              ),
+            ),
+          ],
         ),
+      endDrawer: SideMenu(),
+      endDrawerEnableOpenDragGesture: true,
       body: Padding(padding: EdgeInsets.all(5.0),
       child: Container(
         height: Get.height,

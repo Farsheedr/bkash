@@ -3,6 +3,7 @@ import 'package:untitled/app/modules/home/views/add_money.dart';
 import 'package:untitled/app/modules/home/views/bank_account.dart';
 import 'package:untitled/app/modules/home/views/bkash_to_bank_view.dart';
 import 'package:untitled/app/modules/home/views/cash_out.dart';
+import 'package:untitled/app/modules/home/views/coupon.dart';
 import 'package:untitled/app/modules/home/views/donation.dart';
 import 'package:untitled/app/modules/home/views/microfinance.dart';
 import 'package:untitled/app/modules/home/views/pay_bill.dart';
@@ -11,6 +12,7 @@ import 'package:untitled/app/modules/home/views/remittance.dart';
 import 'package:untitled/app/modules/home/views/request_money.dart';
 import 'package:untitled/app/modules/home/views/savings.dart';
 import 'package:untitled/app/modules/home/views/send_money_view.dart';
+import 'package:untitled/app/modules/home/views/statement.dart';
 import 'package:untitled/app/modules/home/views/support.dart';
 import 'package:untitled/app/modules/home/views/ticket.dart';
 
@@ -20,6 +22,7 @@ import '../modules/home/views/insurance.dart';
 import '../modules/home/views/main_page.dart';
 import '../modules/home/views/other_view.dart';
 import '../modules/home/views/recharge_view.dart';
+import '../modules/home/views/settings.dart';
 
 part 'app_routes.dart';
 
@@ -45,6 +48,13 @@ class AppPages {
   static const SUPPORT = Routes.SUPPORT;
   static const TICKET = Routes.TICKET;
   static const DONATION = Routes.DONATION;
+  static const STATEMENT = Routes.STATEMENT;
+  static const COUPON = Routes.COUPON;
+  static const SETTINGS = Routes.SETTINGS;
+
+
+
+
 
 
 
@@ -158,6 +168,21 @@ class AppPages {
     GetPage(
       name: _Paths.DONATION,
       page: () =>  DonationView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATEMENT,
+      page: () =>  StatementView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.COUPON,
+      page: () =>  CouponView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS,
+      page: () =>  SettingsView(),
       binding: HomeBinding(),
     ),
 

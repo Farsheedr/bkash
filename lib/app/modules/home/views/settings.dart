@@ -7,7 +7,7 @@ import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
 import '../models/school_list.dart';
 
-class TicketView extends GetView<HomeController> {
+class SettingsView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class TicketView extends GetView<HomeController> {
             },
           ),
           title: Text(
-            ' টিকেট   ',
+            'সেটিংস্‌   ',
             style: TextStyle(
               color: AppColor.colorWhite,
               fontWeight: FontWeight.bold,
@@ -60,30 +60,25 @@ class TicketView extends GetView<HomeController> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('ঘরে বসেই বিভিন্ন সেবার টিকেট কিনুন, সুবিধামতো '),
-                                SizedBox(
-                                  height: AppSize.s4,
-                                ),
-                                Divider(
-                                  color: AppColor.lightGrayColor,
-                                  thickness: AppSize.s2,
-                                ),
-                                SizedBox(
-                                  height:AppSize.s4 ,
-                                ),
+
+
                                 InkWell(
                                   onTap: (){},
                                   child: Row(
                                     children: [
-                                      Icon(Icons.flight,color: AppColor.bkashPurple,size: 30,),
-                                      SizedBox(width: AppSize.s12,),
-                                      Text('বিমান ',
+                                      Icon(Icons.drive_file_rename_outline_outlined,
+                                      color: AppColor.bkashPurple,),
+                                      SizedBox(
+                                        width: AppSize.s8,
+                                      ),
+                                      Text('লাইভ চ্যাট',
                                         style: TextStyle(
-
+                                          color: AppColor.bkashPurple,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),),
-
+                                      Spacer(),
+                                      Icon(Icons.arrow_forward ,color: AppColor.bkashPurple,size: 30,)
 
                                     ],
                                   ),
@@ -96,15 +91,21 @@ class TicketView extends GetView<HomeController> {
                                   onTap: (){},
                                   child: Row(
                                     children: [
-                                      Icon(Icons.directions_bus,color: AppColor.bkashPurple,size: 30,),
-                                      SizedBox(width: AppSize.s12,),
-                                      Text('বাস  ',
-                                        style: TextStyle(
+                                      Icon(Icons.picture_in_picture,
+                                          color: AppColor.bkashPurple,
+                                      ),
+                                      SizedBox(
+                                        width: AppSize.s8,
+                                      ),
 
+                                      Text(' ছবি পরিবর্তন করুন ',
+                                        style: TextStyle(
+                                          color: AppColor.bkashPurple,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),),
-
+                                      Spacer(),
+                                      Icon(Icons.arrow_forward,color: AppColor.bkashPurple,size: 30,)
 
                                     ],
                                   ),
@@ -117,15 +118,20 @@ class TicketView extends GetView<HomeController> {
                                   onTap: (){},
                                   child: Row(
                                     children: [
-                                      Icon(Icons.directions_boat_filled_rounded,color: AppColor.bkashPurple,size: 30,),
-                                      SizedBox(width: AppSize.s12,),
-                                      Text('লঞ্চ',
+                                      Icon(Icons.person_search_outlined,
+                                        color: AppColor.bkashPurple,
+                                      ),
+                                      SizedBox(
+                                        width: AppSize.s8,
+                                      ),
+                                      Text('অ্যাকাউন্ট ম্যানেজ ',
                                         style: TextStyle(
-
+                                          color: AppColor.bkashPurple,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),),
-
+                                      Spacer(),
+                                      Icon(Icons.arrow_forward,color: AppColor.bkashPurple,size: 30,)
 
                                     ],
                                   ),

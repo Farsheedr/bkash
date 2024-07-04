@@ -5,6 +5,7 @@ import '../../../routes/app_pages.dart';
 import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
 import '../models/school_list.dart';
+import '../widgets/side_menu.dart';
 
 class CashoutView extends StatelessWidget {
   @override
@@ -29,7 +30,19 @@ class CashoutView extends StatelessWidget {
           ),
           centerTitle: true,
           backgroundColor: AppColor.bkashPurple,
+          actions: [
+            Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.menu, color: Colors.white),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+              ),
+            ),
+          ],
         ),
+        endDrawer: SideMenu(),
+        endDrawerEnableOpenDragGesture: true,
         body: Padding(
           padding: EdgeInsets.all(5.0),
           child: Container(

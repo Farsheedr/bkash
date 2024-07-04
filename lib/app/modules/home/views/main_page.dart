@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/home/widgets/side_menu.dart';
 import '../../../routes/app_pages.dart';
 import '../../../styles/app_assets.dart';
 import '../controllers/home_controller.dart';
 import '../../../styles/app_style.dart';
 import '../widgets/custom_icon_button.dart';
-import '../widgets/custom_popup_menu.dart';
 import '../widgets/offer_list.dart';
 import '../widgets/suggestion_list.dart';
 
@@ -54,27 +54,42 @@ class MainView extends GetView<HomeController> {
                           ),
                           Container(
                             height: 25,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Text(
-                                'ব্যালেন্স দেখুন',
-                                style: TextStyle(color: AppColor.bkashPurple),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColor.colorWhite,
+                            child: AnimatedSwitcher(
+                              duration: Duration(milliseconds: 300),
+                              transitionBuilder: (Widget child, Animation<double> animation) {
+                                return ScaleTransition(
+                                  scale: animation,
+                                  child: child,
+                                );
+                              },
+                              child: ElevatedButton(
+                                key: Key('balance button key'),
+                                onPressed: () {},
+                                child: Text(
+                                  'ব্যালেন্স দেখুন',
+                                  style: TextStyle(color: AppColor.bkashPurple),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColor.colorWhite,
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
                       Spacer(),
-                      IconButton(
-                        icon: Icon(Icons.menu,color:Colors.white
+                      Builder(
+                          builder: (context) =>
+                              IconButton(
+                                icon: Icon(Icons.menu, color: Colors.white
 
-                        ),
-                        onPressed: (){
-                          _showSideModalSheet(context);
-                        },
+                                ),
+                                onPressed: () {
+                                  Scaffold.of(context).openEndDrawer();
+
+                                },
+
+                              )
 
                       ),
                     ],
@@ -85,159 +100,176 @@ class MainView extends GetView<HomeController> {
           ),
         ),
       ),
+      endDrawer: SideMenu(),
+      endDrawerEnableOpenDragGesture: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Obx(() => AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                curve: Curves.fastOutSlowIn,
-                height: controller.isExpanded.value ? null : 200.0,
-                child: Column(
-                  children: [
-                    if (controller.isExpanded.value || controller.containerHeight.value > 200.0)
-                      GridView.count(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        crossAxisCount: 4,
-                        crossAxisSpacing: 5.0,
-                        mainAxisSpacing: 5.0,
-                        children: [
-                          CustomIconButton(
-                            icon: Icons.monetization_on_outlined,
-                            iconColor: AppColor.appRed,
-                            label: 'সেনড মানি',
-                            onPressed: () {
-                              Get.toNamed(AppPages.MONEY);
-                            },
+              Obx(() =>
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.fastOutSlowIn,
+                    height: controller.showFullGrid.value ? null : 200.0,
+                    child: Column(
+                      children: [
+
+                          GridView.count(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            crossAxisCount: 4,
+                            crossAxisSpacing: 5.0,
+                            mainAxisSpacing: 5.0,
+                            children: [
+                              CustomIconButton(
+                                icon: Icons.monetization_on_outlined,
+                                iconColor: AppColor.appRed,
+                                label: 'সেনড মানি',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.MONEY);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.send_to_mobile,
+                                iconColor: AppColor.appGreen,
+                                label: 'মোবাইল রিচার্জ',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.RECHARGE);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.money_outlined,
+                                iconColor: AppColor.cyan,
+                                label: 'ক্যাশ আউট',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.CASH);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.shopping_bag,
+                                iconColor: Colors.orange,
+                                label: 'পেমেন্ট ',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.PAYMENT);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.add_card,
+                                iconColor: Colors.purple,
+                                label: 'অ্যাড মানি',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.ADD);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.lightbulb,
+                                iconColor: AppColor.appGreen,
+                                label: 'পে বিল',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.BILL);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.savings,
+                                iconColor: Colors.deepPurple,
+                                label: 'সেভিংস',
+                                onPressed: () {
+                                  Get.toNamed(AppPages.SAVINGS);
+                                },
+                              ),
+                              CustomIconButton(
+                                icon: Icons.attach_money_outlined,
+                                iconColor: Colors.brown,
+                                label: 'লোন',
+                                onPressed: () {},
+                              ),
+
+
+                            ],
                           ),
-                          CustomIconButton(
-                            icon: Icons.send_to_mobile,
-                            iconColor: AppColor.appGreen,
-                            label: 'মোবাইল রিচার্জ',
-                            onPressed: () {
-                              Get.toNamed(AppPages.RECHARGE);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.money_outlined,
-                            iconColor: AppColor.cyan,
-                            label: 'ক্যাশ আউট',
-                            onPressed: () {
-                              Get.toNamed(AppPages.CASH);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.shopping_bag,
-                            iconColor: Colors.orange,
-                            label: 'পেমেন্ট ',
-                            onPressed: () {
-                              Get.toNamed(AppPages.PAYMENT);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.add_card,
-                            iconColor: Colors.purple,
-                            label: 'অ্যাড মানি',
-                            onPressed: () {
-                              Get.toNamed(AppPages.ADD);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.lightbulb,
-                            iconColor: AppColor.appGreen,
-                            label: 'পে বিল',
-                            onPressed: () {
-                              Get.toNamed(AppPages.BILL);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.savings,
-                            iconColor: Colors.deepPurple,
-                            label: 'সেভিংস',
-                            onPressed: () {
-                              Get.toNamed(AppPages.SAVINGS);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.attach_money_outlined,
-                            iconColor: Colors.brown,
-                            label: 'লোন',
-                            onPressed: () {},
-                          ),
-                          CustomIconButton(
-                            icon: Icons.monetization_on_outlined,
-                            iconColor: AppColor.appBlue,
-                            label: 'ইনসিওরেন্স',
-                            onPressed: () {
-                              Get.toNamed(AppPages.INSURANCE);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.house,
-                            iconColor: AppColor.appRed,
-                            label: 'বিকাশ টু ব্যাংক',
-                            onPressed: () {
-                              Get.toNamed(AppPages.BANK);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.school,
-                            iconColor: AppColor.blackColor,
-                            label: 'এডুকেশন ফি',
-                            onPressed: () {
-                              Get.toNamed(AppPages.EDUCATION);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.price_check,
-                            iconColor: AppColor.bkashPurplelight,
-                            label: 'মাইক্রোফাইনান্স',
-                            onPressed: () {
-                              Get.toNamed(AppPages.MICRO);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.mobile_screen_share,
-                            iconColor: AppColor.appRed,
-                            label: 'রিকুোয়েষট মানি ',
-                            onPressed: () {
-                              Get.toNamed(AppPages.REQUEST);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.language,
-                            iconColor: AppColor.appGreen,
-                            label: 'রেমিটেন্স  ',
-                            onPressed: () {
-                              Get.toNamed(AppPages.REMITTANCE);
-                            },
-                          ),
-                          CustomIconButton(
-                            icon: Icons.search_outlined,
-                            label: 'বিনিময়',
-                            onPressed: () {
-                              // Add your onPressed logic here
-                            },
-                          ),
-                        ],
-                      ),
-                  ],
-                ),
-              )),
+                        if (controller.showFullGrid.value)
+      GridView.count(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        crossAxisCount: 4,
+        crossAxisSpacing: 5.0,
+        mainAxisSpacing: 5.0,
+        children: [
+          CustomIconButton(
+            icon: Icons.monetization_on_outlined,
+            iconColor: AppColor.appBlue,
+            label: 'ইনসিওরেন্স',
+            onPressed: () {
+              Get.toNamed(AppPages.INSURANCE);
+            },
+          ),
+
+          CustomIconButton(
+            icon: Icons.house,
+            iconColor: AppColor.appRed,
+            label: 'বিকাশ টু ব্যাংক',
+            onPressed: () {
+              Get.toNamed(AppPages.BANK);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.school,
+            iconColor: AppColor.blackColor,
+            label: 'এডুকেশন ফি',
+            onPressed: () {
+              Get.toNamed(AppPages.EDUCATION);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.price_check,
+            iconColor: AppColor.bkashPurplelight,
+            label: 'মাইক্রোফাইনান্স',
+            onPressed: () {
+              Get.toNamed(AppPages.MICRO);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.mobile_screen_share,
+            iconColor: AppColor.appRed,
+            label: 'রিকুোয়েষট মানি ',
+            onPressed: () {
+              Get.toNamed(AppPages.REQUEST);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.language,
+            iconColor: AppColor.appGreen,
+            label: 'রেমিটেন্স  ',
+            onPressed: () {
+              Get.toNamed(AppPages.REMITTANCE);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.search_outlined,
+            label: 'বিনিময়',
+            onPressed: () {
+              // Add your onPressed logic here
+            },
+          ),
+
+        ],
+      )
+                      ],
+                    ),
+                  )),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  controller.isExpanded.value = !controller.isExpanded.value;
-                  controller.containerHeight.value = controller.isExpanded.value ? 400.0 : 200.0;
+                  controller.toggleGridExpansion();
                 },
-                child: Obx(() => Text(
-                  controller.isExpanded.value ? 'বন্ধ করুন' : 'আরো দেখুন',
-                  style: TextStyle(
-                    color: AppColor.bkashPurple,
-                  ),
-                )),
+                child: Obx(() =>
+                    Text(
+                      controller.showFullGrid.value ? 'বন্ধ করুন' : 'আরো দেখুন',
+                      style: TextStyle(
+                        color: AppColor.bkashPurple,
+                      ),
+                    )),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.colorWhite,
                 ),
@@ -285,7 +317,7 @@ class MainView extends GetView<HomeController> {
                             onTap: () {},
                           ),
                           SuggestionList(
-                            imagePath: 'assets/images/image2.png',
+                            imagePath: AppAssets.quizLogo,
                             text: 'কুইজমাসটার ',
                             onTap: () {},
                           ),
@@ -451,7 +483,9 @@ class MainView extends GetView<HomeController> {
                             icon: Icons.favorite_border_outlined,
                             iconColor: AppColor.bkashPurple,
                             label: 'ডোনেশন',
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed(AppPages.DONATION);
+                            },
                           ),
                           CustomIconButton(
                             icon: Icons.local_hospital,
@@ -500,7 +534,7 @@ class MainView extends GetView<HomeController> {
             label: 'হোম ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code ),
+            icon: Icon(Icons.qr_code),
             label: 'QR স্ক্যান ',
           ),
           BottomNavigationBarItem(
@@ -514,38 +548,9 @@ class MainView extends GetView<HomeController> {
           controller.selectedIndex.value = index;
         },
       ),
+
+
     );
   }
 }
-void _showSideModalSheet(BuildContext context) {
-  showModalBottomSheet(
 
-    context: context,
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent, // Make background transparent for sliding animation
-    builder: (BuildContext context) {
-      return FractionallySizedBox(
-        heightFactor: 0.85, // Adjust height as needed
-        alignment: Alignment.centerRight,
-        child: SingleChildScrollView(
-          child: Container(
-            height:Get.size.height, // Adjust height as needed
-            decoration: BoxDecoration(
-              color: Colors.white, // Set the desired background color
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16.0),
-                bottomLeft: Radius.circular(16.0),
-              ),
-            ),
-            child: SideModalSheet(
-              onSelected: (String result) {
-                // Handle selected item if needed
-                Navigator.pop(context); // Close the modal sheet on item selection
-              },
-            ),
-          ),
-        ),
-      );
-    },
-  );
-}

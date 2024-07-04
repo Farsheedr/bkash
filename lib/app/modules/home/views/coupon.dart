@@ -12,7 +12,7 @@ import '../../../styles/app_style.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/custom_icon_button.dart';
 
-class AddMoneyView extends GetView<HomeController> {
+class CouponView extends GetView<HomeController> {
   // Track whether the grid is expanded or not
 
   @override
@@ -28,7 +28,7 @@ class AddMoneyView extends GetView<HomeController> {
             },
           ),
           title: Text(
-            'অ্যাড মানি',
+            'কুপন ',
             style: TextStyle(color: AppColor.colorWhite,fontWeight: FontWeight.bold),
           ),
 
@@ -65,58 +65,72 @@ class AddMoneyView extends GetView<HomeController> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'আপনার অ্যাড মানি করার মাধ্যম বাছাই করুন',
-              style: TextStyle(
-                color: AppColor.grayColor,
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            Divider(
-              color: AppColor.lightGrayColor,
-              thickness: 3.0,
-            ),
-            SizedBox(height: AppSize.s6,),
-            InkWell(
-              onTap: (){
-                Get.toNamed(AppPages.ACCOUNT);
-              },
-              child: Row(
-                children: [
-                  Icon(Icons.food_bank_outlined ,color: AppColor.bkashPurple,size: 35,),
-                  SizedBox(width: AppSize.s16,),
-                  Text('ব্যাংক টু বিকাশ',
-                      style: TextStyle(color: AppColor.blackColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.normal)
-                  ),
-
-                ],
-
-              ),
-            ),
-            SizedBox(height: AppSize.s6,),
-            Divider(color: AppColor.lightGrayColor,
-                thickness: 2.0,),
             InkWell(
               onTap: (){},
               child: Row(
                 children: [
-                  Icon(Icons. credit_card_outlined,color: AppColor.bkashPurple,size: 35,),
-                  SizedBox(width: AppSize.s16,),
-                  Text('কার্ড টু বিকাশ',
-                      style: TextStyle(color: AppColor.blackColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.normal)
-                  ),
+                  Icon(Icons.videocam_outlined,
+                  color: AppColor.bkashPurple,),
+                  SizedBox(width: AppSize.s6,),
+                  Text('দেখুন কিভাবে কুপন ব্যবহার করবেন'),
+
+                  Spacer(),
+                  Icon(Icons.chevron_right_outlined,
+                  color: AppColor.grayLightColor,)
+
 
                 ],
-
               ),
             ),
+            SizedBox(height: AppSize.s6,),
+            Divider(color: AppColor.lightGrayColor,
+            thickness: AppSize.s4,),
+            SizedBox(height: AppSize.s4,),
+            Text('সব কুপন',
+            style: TextStyle(
+              color: AppColor.grayLightColor,
 
-
+            ),),
+            SizedBox(
+              height: AppSize.s4,
+            ),
+            Divider(
+              color: AppColor.lightGrayColor,
+              thickness: AppSize.s2,
+            ),
+            SizedBox(
+              height: AppSize.s4,
+            ),
+      Row(
+        children: [
+          ClipRRect(
+          borderRadius: BorderRadius.circular(30),// Adjust the radius as needed
+          child: Container(
+            width: Get.size.width/2,
+            padding: EdgeInsets.symmetric(horizontal: AppSize.s20),
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColor.grayLightColor,width: AppSize.s2)
+            ),
+            child: TextFormField(
+            decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 16.0), // Adjust padding as needed
+            hintText: 'কুপন কোড লিখুন ',
+            border: InputBorder.none, // Remove default border
+            ),
+            ),
+          )
+          ),
+          SizedBox(width: AppSize.s6,),
+          ElevatedButton(onPressed: (){}, child: Text('যোগ করুন',
+          style: TextStyle(
+            color: AppColor.colorWhite
+          ),),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.grayColor,
+            foregroundColor: AppColor.bkashPurple,
+          ))
+        ],
+      )
           ]
       );
     }
@@ -125,5 +139,5 @@ class AddMoneyView extends GetView<HomeController> {
     )
     )
     );
-  }
     }
+  }

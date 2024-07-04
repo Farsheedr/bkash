@@ -22,6 +22,11 @@ abstract class Routes {
   static const SUPPORT = _Paths.SUPPORT;
   static const TICKET = _Paths.TICKET;
   static const DONATION = _Paths.DONATION;
+  static const STATEMENT = _Paths.STATEMENT;
+  static const COUPON = _Paths.COUPON;
+  static const SETTINGS = _Paths.SETTINGS;
+
+
 
 
 
@@ -62,6 +67,11 @@ abstract class _Paths {
   static const SUPPORT = '/support';
   static const TICKET = '/ticket';
   static const DONATION = '/donation';
+  static const STATEMENT = '/statement';
+  static const COUPON = '/coupon';
+  static const SETTINGS = '/settings';
+
+
 
 
 

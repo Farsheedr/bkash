@@ -44,6 +44,8 @@ class HomeController extends GetxController {
   var containerHeight = 200.0.obs;
   RxBool showBalance = false.obs;
   var selectedIndex = 0.obs;
+  var selectedDate = DateTime.now().obs;
+  RxBool showFullGrid = false.obs;
 
   void toggleList(String listName){
     if(currentlyOpenList == listName){
@@ -58,6 +60,13 @@ class HomeController extends GetxController {
   void toggleBalanceText() {
     showBalance.value = !showBalance.value;
   }
+  void toggleGridExpansion() {
+    showFullGrid.value = !showFullGrid.value;
+  }
+
+
+
+
 
 
 
@@ -72,4 +81,42 @@ void updateCarouselIndex(int index){
 
 
   void increment() => count.value++;
+
+void incrementDate() {
+  selectedDate.value = _addMonth(selectedDate.value);
+}
+
+void decrementDate() {
+  selectedDate.value = _subtractMonth(selectedDate.value);
+}
+
+DateTime _addMonth(DateTime date) {
+  int year = date.year;
+  int month = date.month + 1;
+  if (month > 12) {
+    month = 1;
+    year++;
+  }
+  int day = date.day;
+  int lastDayOfMonth = DateTime(year, month + 1, 0).day;
+  if (day > lastDayOfMonth) {
+    day = lastDayOfMonth;
+  }
+  return DateTime(year, month, day);
+}
+
+DateTime _subtractMonth(DateTime date) {
+  int year = date.year;
+  int month = date.month - 1;
+  if (month < 1) {
+    month = 12;
+    year--;
+  }
+  int day = date.day;
+  int lastDayOfMonth = DateTime(year, month + 1, 0).day;
+  if (day > lastDayOfMonth) {
+    day = lastDayOfMonth;
+  }
+  return DateTime(year, month, day);
+}
 }
