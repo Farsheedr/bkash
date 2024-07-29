@@ -1,68 +1,55 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 import '../models/login_response.dart';
+import '../widgets/negativeSnackBar.dart';
+
 
 class LoginProvider extends GetConnect {
-
-
-  // Future<LoginResponse> login(String mobile, String password) async {
-  //   final url = 'https://fsiblapi.opuserp.com/api/Auth/LogIn';
-  //   final body = {
-  //     'mobile': mobile,
-  //     'password': password,
-  //     'rememberMe': "",
-  //   };
-  //   print('Sending request to $url with body: $body');
-  //
-  //   try {
-  //     final response = await post(url, body);
-  //     print('Response Status Code: ${response.statusCode}');
-  //     print('Response Body: ${response.body}');
-  //
-  //     if (response.statusCode == 200) {
-  //       // Handle successful login
-  //       final responseData = response.body;
-  //       // Process the response data
-  //       Get.snackbar('Success', 'Login successful');
-  //       return loginResponseFromJson(response.body);
-  //     } else {
-  //       // Handle error
-  //       final errorData = response.body;
-  //       // Process the error data
-  //       throw Exception('Failed to login: ${errorData['message']}');
-  //     }
-  //   } catch (error) {
-  //     Get.snackbar('Error', error.toString());
-  //     throw Exception('Failed to login: ');
-  //   }
-  // }
-  // Future<LoginResponse>login(String user, String password)async{
-  //   final url = 'https://fsiblapi.opuserp.com/api/Auth/AuthToken';
-  //   var response = await client.post(Uri.parse(url)
-  //   print('Sending request to $url with body: $body');
-  //
-  //   try{
-  //     final response= await post(url, body);
-  //     print('Response Status Code:${response.statusCode}');
-  //     print('Response Body:${response.body}');
-  //
-  //     if(response.statusCode==200){
-  //       final responseData= response.body;
-  //       Get.snackbar("Success", "Login Successful");
-  //       return loginResponseFromJson(response.body);
-  //
-  //     }else{
-  //       final errorData = response.body;
-  //       throw Exception('Failed to login:${errorData['message']}');
-  //     }
-  //   } catch(error){
-  //
-  //         Get.snackbar('Error', error.toString());
-  //          throw Exception('Failed to login: ');
-  //        }
-  //
-  //   }
-
-
+  @override
+  void onInit() {
+    httpClient.baseUrl = 'https://fsiblapi.opuserp.com';
   }
+
+  static var client = http.Client();
+
+
+  Future<LoginResponse> login(String user, String password) async {
+    final url = 'https://fsiblapi.opuserp.com/api/Auth/AuthToken';
+    var response = await client.post(Uri.parse(url),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({"user": user, "password": password}));
+
+
+    debugPrint("req body => $user---$password");
+    debugPrint("response body => ${response.body}");
+
+    // try{
+    //   final response= await post(url, body);
+    //   print('Response Status Code:${response.statusCode}');
+    //   print('Response Body:${response.body}');
+
+    if (response.statusCode == 200) {
+      debugPrint("-----------------4->${response.body}");
+
+
+      return loginResponseFromJson(response.body);
+    } else if (response.statusCode == 502) {
+      negativeSnackbar(message: 'Unable to Access Server. Please, Try Again Later.');
+      throw const HttpException('error');
+    } else if (response.statusCode == 400) {
+      negativeSnackbar(message: "Username or Password is Invalid");
+      throw const HttpException('Username or Password is invalid');
+    } else {
+      negativeSnackbar(message: "Something Wrong");
+      throw const HttpException('Something went wrong!');
+    }
+  }
+}
 

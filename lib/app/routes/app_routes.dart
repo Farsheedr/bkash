@@ -26,6 +26,10 @@ abstract class Routes {
   static const COUPON = _Paths.COUPON;
   static const SETTINGS = _Paths.SETTINGS;
   static const LOGIN = _Paths.LOGIN;
+  static const INTERNET = _Paths.INTERNET;
+  static const CARD = _Paths.CARD;
+
+
 
 
 
@@ -73,6 +77,10 @@ abstract class _Paths {
   static const COUPON = '/coupon';
   static const SETTINGS = '/settings';
   static const LOGIN = '/login';
+  static const INTERNET = '/internet';
+  static const CARD = '/card';
+
+
 
 
 

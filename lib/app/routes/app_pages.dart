@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
-import 'package:untitled/app/modules/home/views/add_money.dart';
-import 'package:untitled/app/modules/home/views/bank_account.dart';
-import 'package:untitled/app/modules/home/views/bkash_to_bank_view.dart';
+import 'package:untitled/app/modules/add_money/bindings/add_money_binding.dart';
+import 'package:untitled/app/modules/add_money/views/bank_account.dart';
+import 'package:untitled/app/modules/add_money/views/bkash_to_bank_view.dart';
+import 'package:untitled/app/modules/add_money/views/card_to_bkash_view.dart';
+import 'package:untitled/app/modules/add_money/views/internet_banking.dart';
 import 'package:untitled/app/modules/home/views/cash_out.dart';
 import 'package:untitled/app/modules/home/views/coupon.dart';
 import 'package:untitled/app/modules/home/views/donation.dart';
@@ -16,6 +18,7 @@ import 'package:untitled/app/modules/home/views/statement.dart';
 import 'package:untitled/app/modules/home/views/support.dart';
 import 'package:untitled/app/modules/home/views/ticket.dart';
 
+import '../modules/add_money/views/add_money_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/education_view.dart';
 import '../modules/home/views/insurance.dart';
@@ -53,6 +56,10 @@ class AppPages {
   static const COUPON = Routes.COUPON;
   static const SETTINGS = Routes.SETTINGS;
   static const LOGIN = Routes.LOGIN;
+  static const INTERNET = Routes.INTERNET;
+  static const CARD = Routes.CARD;
+
+
 
 
 
@@ -117,7 +124,7 @@ class AppPages {
     GetPage(
       name: _Paths.ADD,
       page: () =>  AddMoneyView(),
-      binding: HomeBinding(),
+      binding: AddMoneyBinding(),
     ),
     GetPage(
       name: _Paths.BILL,
@@ -137,12 +144,12 @@ class AppPages {
     GetPage(
       name: _Paths.BANK,
       page: () =>  BkashtoBankView(),
-      binding: HomeBinding(),
+      binding: AddMoneyBinding(),
     ),
     GetPage(
       name: _Paths.ACCOUNT,
-      page: () =>  BankAccountView(),
-      binding: HomeBinding(),
+      page: () =>  BankView(),
+      binding: AddMoneyBinding(),
     ),
     GetPage(
       name: _Paths.MICRO,
@@ -194,6 +201,16 @@ class AppPages {
       page: () =>  LoginView(),
       binding: HomeBinding(),
     ),
+    GetPage(
+      name: _Paths.INTERNET,
+      page: () =>  InternetBankingView(),
+      binding: AddMoneyBinding(),
+    ),
+    GetPage(
+      name: _Paths.CARD,
+      page: () =>  CardtoBkashView(),
+      binding: AddMoneyBinding(),
+    )
 
   ];
 }
