@@ -109,7 +109,7 @@ class MainView extends GetView<HomeController> {
             children: [
               Obx(() =>
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
+                    duration: Duration(seconds: 3),
                     curve: Curves.fastOutSlowIn,
                     height: controller.showFullGrid.value ? null : 200.0,
                     child: Column(

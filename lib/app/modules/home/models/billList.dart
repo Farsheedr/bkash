@@ -90,10 +90,10 @@ class Telephone {
   });
 }
 List<Telephone> telephone= [
-  Telephone(name: "BTCL", assetImage: AppAssets.vnsLogo,type: ' টেলিফোন  '),
-  Telephone(name: " AmberIT IP Phone", assetImage: AppAssets.moniLogo,type:"টেলিফোন"),
-  Telephone(name: "BTCL Alaap", assetImage: AppAssets.idealLogo,type: "টেলিফোন"),
-  Telephone(name: "Brilliant Connect", assetImage: AppAssets.ndcLogo,type:'টেলিফোন'),
+  Telephone(name: "BTCL", assetImage: AppAssets.btclLogo,type: ' টেলিফোন  '),
+  Telephone(name: " AmberIT IP Phone", assetImage: AppAssets.amberLogo,type:"টেলিফোন"),
+  Telephone(name: "BTCL Alaap", assetImage: AppAssets.alapLogo,type: "টেলিফোন"),
+  Telephone(name: "Brilliant Connect", assetImage: AppAssets.brilliantLogo,type:'টেলিফোন'),
 
 
 
@@ -110,11 +110,11 @@ class Tv {
   });
 }
 List<Tv> tv= [
-  Tv(name: "AKASH DTH", assetImage: AppAssets.vnsLogo,type:'টিভি '),
-  Tv(name: " Bengali Digital", assetImage: AppAssets.moniLogo,type:"টিভি"),
+  Tv(name: "AKASH DTH", assetImage: AppAssets.akashLogo,type:'টিভি '),
+  Tv(name: " Bengali Digital", assetImage: AppAssets.bengaliLogo,type:"টিভি"),
   Tv(name: "BumbelBee", assetImage: AppAssets.idealLogo,type: "টিভি"),
   Tv(name: "Nation Electronics and Cable Networks", assetImage: AppAssets.ndcLogo,type:'টিভি'),
-  Tv(name: "RM Satellite Cable Network", assetImage: AppAssets.ndcLogo,type:'টিভি'),
+  Tv(name: "RM Satellite Cable Network", assetImage: AppAssets.rmLogo,type:'টিভি'),
 ];
 
 
@@ -130,8 +130,8 @@ class Credit {
   });
 }
 List<Credit> credit= [
-  Credit(name: "City Bank Amex Credit Card Bill", assetImage: AppAssets.vnsLogo,type:'ক্রেডিট কার্ড  '),
-  Credit(name: " Visa Credit Card Bill", assetImage: AppAssets.moniLogo,type:"ক্রেডিট কার্ড"),
+  Credit(name: "City Bank Amex Credit Card Bill", assetImage: AppAssets.amexLogo,type:'ক্রেডিট কার্ড  '),
+  Credit(name: " Visa Credit Card Bill", assetImage: AppAssets.visaLogo,type:"ক্রেডিট কার্ড"),
 
 ];
 

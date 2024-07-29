@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +11,20 @@ import 'app/modules/home/bindings/home_binding.dart';
 import 'app/routes/app_pages.dart';
 import 'app/styles/app_style.dart';
 
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}
+
+
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
+
   runApp(const MyApp());
 }
 class MyApp extends StatefulWidget{

@@ -71,7 +71,7 @@ class SettingsView extends GetView<HomeController> {
                                       SizedBox(
                                         width: AppSize.s8,
                                       ),
-                                      Text('লাইভ চ্যাট',
+                                      Text('নাম পরিবর্তন করুন ',
                                         style: TextStyle(
                                           color: AppColor.bkashPurple,
                                           fontSize: 18,

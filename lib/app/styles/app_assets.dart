@@ -62,6 +62,47 @@ class AppAssets{
   static String get carnivalLogo=> "assets/images/carnival.jpg";
   static String get samLogo=> "assets/images/sam.jpg";
   static String get triangleLogo=> "assets/images/triangle.jpg";
+  static String get btclLogo=> "assets/images/btcl.png";
+  static String get alapLogo=> "assets/images/alap.jpg";
+  static String get brilliantLogo=> "assets/images/brilliant.png";
+  static String get akashLogo=> "assets/images/akash.png";
+  static String get rmLogo=> "assets/images/rm.png";
+  static String get bengaliLogo=> "assets/images/bengal.jpg";
+  static String get amexLogo=> "assets/images/amex.jpg";
+  static String get visaLogo=> "assets/images/visa.png";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

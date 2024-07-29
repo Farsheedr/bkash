@@ -25,6 +25,8 @@ abstract class Routes {
   static const STATEMENT = _Paths.STATEMENT;
   static const COUPON = _Paths.COUPON;
   static const SETTINGS = _Paths.SETTINGS;
+  static const LOGIN = _Paths.LOGIN;
+
 
 
 
@@ -70,6 +72,8 @@ abstract class _Paths {
   static const STATEMENT = '/statement';
   static const COUPON = '/coupon';
   static const SETTINGS = '/settings';
+  static const LOGIN = '/login';
+
 
 
 

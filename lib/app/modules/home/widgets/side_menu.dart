@@ -154,7 +154,9 @@ class SideMenu extends StatelessWidget {
                 color: AppColor.bkashPurple,
                 size: AppSize.s28),
             title: Text('লগ আউট '),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(AppPages.LOGIN);
+            },
           ),
         ],
       ),

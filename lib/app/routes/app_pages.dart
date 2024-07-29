@@ -19,6 +19,7 @@ import 'package:untitled/app/modules/home/views/ticket.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/education_view.dart';
 import '../modules/home/views/insurance.dart';
+import '../modules/home/views/login_view.dart';
 import '../modules/home/views/main_page.dart';
 import '../modules/home/views/other_view.dart';
 import '../modules/home/views/recharge_view.dart';
@@ -51,6 +52,9 @@ class AppPages {
   static const STATEMENT = Routes.STATEMENT;
   static const COUPON = Routes.COUPON;
   static const SETTINGS = Routes.SETTINGS;
+  static const LOGIN = Routes.LOGIN;
+
+
 
 
 
@@ -183,6 +187,11 @@ class AppPages {
     GetPage(
       name: _Paths.SETTINGS,
       page: () =>  SettingsView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () =>  LoginView(),
       binding: HomeBinding(),
     ),
 
