@@ -28,6 +28,8 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const INTERNET = _Paths.INTERNET;
   static const CARD = _Paths.CARD;
+  static const SOURCE = _Paths.SOURCE;
+
 
 
 
@@ -79,6 +81,8 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const INTERNET = '/internet';
   static const CARD = '/card';
+  static const SOURCE = '/source-bank';
+
 
 
 

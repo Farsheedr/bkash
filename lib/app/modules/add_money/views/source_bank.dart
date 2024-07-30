@@ -10,8 +10,8 @@ import '../../home/models/billList.dart';
 import '../../home/models/school_list.dart';
 import '../controllers/add_money_controller.dart';
 
-class BkashtoBankView extends GetView<AddMoneyController> {
-  const BkashtoBankView({Key? key}) : super(key: key);
+class SourceBankView extends GetView<AddMoneyController> {
+  const SourceBankView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return(
@@ -51,6 +51,7 @@ class BkashtoBankView extends GetView<AddMoneyController> {
             padding: EdgeInsets.all(5.0),
         child: Container(
         height: Get.height,
+        width: Get.width,
         padding: EdgeInsets.all(16.0),
     margin: EdgeInsets.all(16.0),
     decoration: BoxDecoration(
@@ -65,85 +66,23 @@ class BkashtoBankView extends GetView<AddMoneyController> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
     Text(
-    ' ব্যাংকের নাম টাইপ করে খুঁজুন ',
+    'ব্যাংক একাউনট যোগ করুন   ',
     style: TextStyle(
-    color: AppColor.grayColor,
+    color: AppColor.blackColor,
     fontSize: 14,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
     ),
     ),
-    TextFormField(
-    decoration: InputDecoration(
-    suffixIcon: IconButton(
-    onPressed: () {},
-    icon: Icon(
-    Icons.arrow_forward,
-    color: AppColor.grayLightColor,
-    ),
-    ),
-    border: InputBorder.none,
-    hintText: 'ব্যাংকের নাম লিখুন  ',
-    hintStyle: TextStyle(color: AppColor.grayLightColor),
-    ),
-      // // onChanged: (String? value){
-      // // if( value != null){
-      // //
-      // // }
-      // },
-    ),
-    SizedBox(height: AppSize.s6,),
-    Divider(
-    color: AppColor.lightGrayColor,
-    thickness: AppSize.s4,
-    ),
-      SizedBox(height: AppSize.s6,),
-      Text('সেভ করে রাখা ব্যাংক '),
-      SizedBox(height: AppSize.s6,),
-      Divider(
-        color: AppColor.lightGrayColor,
-        thickness: AppSize.s2,
-      ),
-      SizedBox(height: AppSize.s4,),
-      Text('সব ব্যাংক '),
       SizedBox(height: AppSize.s4,),
       Divider(
-        color: AppColor.lightGrayColor,
-        thickness: AppSize.s2,
+        color: AppColor.grayLightColor,
+        thickness: AppSize.s4,
       ),
-      Obx(() {
-        if (controller.isLoading.value) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
 
-        if (controller.bankList.isEmpty) {
-          return Center(
-            child: Text('No banks available.'),
-          );
-        }
-
-        return ListView.builder(
-          shrinkWrap: true,
-          itemCount: controller.bankList.length,
-          itemBuilder: (context, index) {
-            final bank = controller.bankList[index];
-            return ListTile(
-              title: Text(bank.bankName),
-
-              onTap: () {Get.toNamed(AppPages.SOURCE);
-
-              },
-            );
-          },
-        );
-      }),
 
 
     ]
-      );
-
-
+    );
     }
     )
     )

@@ -4,6 +4,7 @@ import 'package:untitled/app/modules/add_money/views/bank_account.dart';
 import 'package:untitled/app/modules/add_money/views/bkash_to_bank_view.dart';
 import 'package:untitled/app/modules/add_money/views/card_to_bkash_view.dart';
 import 'package:untitled/app/modules/add_money/views/internet_banking.dart';
+import 'package:untitled/app/modules/add_money/views/source_bank.dart';
 import 'package:untitled/app/modules/home/views/cash_out.dart';
 import 'package:untitled/app/modules/home/views/coupon.dart';
 import 'package:untitled/app/modules/home/views/donation.dart';
@@ -58,6 +59,8 @@ class AppPages {
   static const LOGIN = Routes.LOGIN;
   static const INTERNET = Routes.INTERNET;
   static const CARD = Routes.CARD;
+  static const SOURCE = Routes.SOURCE;
+
 
 
 
@@ -209,6 +212,11 @@ class AppPages {
     GetPage(
       name: _Paths.CARD,
       page: () =>  CardtoBkashView(),
+      binding: AddMoneyBinding(),
+    ),
+    GetPage(
+      name: _Paths.SOURCE,
+      page: () =>  SourceBankView(),
       binding: AddMoneyBinding(),
     )
 

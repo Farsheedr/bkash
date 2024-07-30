@@ -59,6 +59,22 @@ static Future<List<GetAllBanksAddMoney>> getBankList() async{
       throw HttpException('Something went wrong');
     }
   }
+  static Future<String> addSourceBank(reqBody) async {
+    final url = AppApis.addSourceBank;
+
+    var response = await client.post(
+      Uri.parse(url),
+      headers: {'Content-Type': 'application/json ; charset=UTF-8' },
+      body: jsonEncode(reqBody),
+    );
+    print('Response Status Code : ${response.statusCode}');
+    print('Response Body: ${response.body}');
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)["message"];
+    } else {
+      throw const HttpException('Something went wrong!');
+    }
+  }
 
 }
 

@@ -17,7 +17,7 @@ class GetAllBanksAddMoney {
   int accNumberLength;
   num minAddMoneyAmount;
   int id;
-  String isDelete;
+  dynamic isDelete;
   String createdAt;
   String updatedAt;
   String createdBy;
