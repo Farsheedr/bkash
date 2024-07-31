@@ -29,6 +29,14 @@ abstract class Routes {
   static const INTERNET = _Paths.INTERNET;
   static const CARD = _Paths.CARD;
   static const SOURCE = _Paths.SOURCE;
+  static const CARD2 = _Paths.CARD2;
+  static const TOLL = _Paths.TOLL;
+  static const BRIDGE = _Paths.BRIDGE;
+  static const VEHICLE = _Paths.VEHICLE;
+
+
+
+
 
 
 
@@ -82,6 +90,14 @@ abstract class _Paths {
   static const INTERNET = '/internet';
   static const CARD = '/card';
   static const SOURCE = '/source-bank';
+  static const CARD2 = '/card-to-bkash';
+  static const TOLL = '/toll';
+  static const BRIDGE = '/bridge';
+  static const VEHICLE = '/vehicle';
+
+
+
+
 
 
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/add_money/controllers/add_money_controller.dart';
 import 'package:untitled/app/modules/home/widgets/side_menu.dart';
+import 'package:untitled/app/modules/toll/controllers/toll_controller.dart';
 import '../../../routes/app_pages.dart';
 import '../../../styles/app_assets.dart';
 import '../controllers/home_controller.dart';
@@ -10,6 +12,8 @@ import '../widgets/offer_list.dart';
 import '../widgets/suggestion_list.dart';
 
 class MainView extends GetView<HomeController> {
+  final TollController tollController =  Get.put(TollController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,6 +231,15 @@ class MainView extends GetView<HomeController> {
             label: 'মাইক্রোফাইনান্স',
             onPressed: () {
               Get.toNamed(AppPages.MICRO);
+            },
+          ),
+          CustomIconButton(
+            icon: Icons.toll,
+            iconColor: AppColor.appBlue,
+            label: 'টোল',
+            onPressed: () {
+              tollController.getAllRegisteredVehicles;
+              Get.toNamed(AppPages.TOLL);
             },
           ),
           CustomIconButton(

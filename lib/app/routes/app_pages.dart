@@ -9,7 +9,8 @@ import 'package:untitled/app/modules/home/views/cash_out.dart';
 import 'package:untitled/app/modules/home/views/coupon.dart';
 import 'package:untitled/app/modules/home/views/donation.dart';
 import 'package:untitled/app/modules/home/views/microfinance.dart';
-import 'package:untitled/app/modules/home/views/pay_bill.dart';
+import 'package:untitled/app/modules/pay_bill/bindings/pay_bill_binding.dart';
+import 'package:untitled/app/modules/pay_bill/views/pay_bill.dart';
 import 'package:untitled/app/modules/home/views/payment.dart';
 import 'package:untitled/app/modules/home/views/remittance.dart';
 import 'package:untitled/app/modules/home/views/request_money.dart';
@@ -18,8 +19,11 @@ import 'package:untitled/app/modules/home/views/send_money_view.dart';
 import 'package:untitled/app/modules/home/views/statement.dart';
 import 'package:untitled/app/modules/home/views/support.dart';
 import 'package:untitled/app/modules/home/views/ticket.dart';
+import 'package:untitled/app/modules/toll/bindings/toll_binding.dart';
+import 'package:untitled/app/modules/toll/views/vehicle_info_dart.dart';
 
 import '../modules/add_money/views/add_money_view.dart';
+import '../modules/add_money/views/card.view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/education_view.dart';
 import '../modules/home/views/insurance.dart';
@@ -29,6 +33,8 @@ import '../modules/home/views/main_page.dart';
 import '../modules/home/views/other_view.dart';
 import '../modules/home/views/recharge_view.dart';
 import '../modules/home/views/settings.dart';
+import '../modules/toll/views/bridge_view.dart';
+import '../modules/toll/views/toll_view.dart';
 
 part 'app_routes.dart';
 
@@ -61,6 +67,15 @@ class AppPages {
   static const INTERNET = Routes.INTERNET;
   static const CARD = Routes.CARD;
   static const SOURCE = Routes.SOURCE;
+  static const CARD2 = Routes.CARD2;
+  static const TOLL = Routes.TOLL;
+  static const BRIDGE = Routes.BRIDGE;
+  static const VEHICLE = Routes.VEHICLE;
+
+
+
+
+
 
 
 
@@ -133,7 +148,7 @@ class AppPages {
     GetPage(
       name: _Paths.BILL,
       page: () =>  PayBillView(),
-      binding: HomeBinding(),
+      binding: PayBillBinding(),
     ),
     GetPage(
       name: _Paths.SAVINGS,
@@ -219,6 +234,26 @@ class AppPages {
       name: _Paths.SOURCE,
       page: () =>  SourceBankView(),
       binding: AddMoneyBinding(),
+    ),
+    GetPage(
+      name: _Paths.CARD2,
+      page: () =>  CardView(),
+      binding: AddMoneyBinding(),
+    ),
+    GetPage(
+      name: _Paths.TOLL,
+      page: () =>  TollView(),
+      binding: TollBinding(),
+    ),
+    GetPage(
+      name: _Paths.BRIDGE,
+      page: () =>  BridgeView(),
+      binding: TollBinding(),
+    ),
+    GetPage(
+      name: _Paths.VEHICLE,
+      page: () =>  VehicleInfoView(),
+      binding: TollBinding(),
     )
 
   ];

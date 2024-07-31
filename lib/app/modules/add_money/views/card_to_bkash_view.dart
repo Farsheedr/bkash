@@ -73,7 +73,7 @@ class CardtoBkashView extends GetView<AddMoneyController> {
                                   'আপনার কার্ডের ধরন বেছে নিন',
                                   style: TextStyle(
                                     color: AppColor.grayColor,
-                                    fontSize: 12,
+                                    fontSize: AppSize.s10,
                                     fontWeight: FontWeight.normal,
                                   ),
                                 ),
@@ -105,7 +105,48 @@ class CardtoBkashView extends GetView<AddMoneyController> {
                                         title: Text(bank.bankName),
 
                                         onTap: () {
-                                          // Handle bank selection
+                                          Get.toNamed(AppPages.CARD2);
+                                        },
+                                      );
+                                    },
+                                  );
+                                }),
+                                SizedBox(height: AppSize.s4,),
+                                Divider(color: AppColor.lightGrayColor,
+                                thickness: AppSize.s2,),
+                                SizedBox(height: AppSize.s4,),
+                                Text('সেভ করা কার্ড সমূহ ',
+                                style: TextStyle(
+                                  color: AppColor.grayColor,
+                                  fontSize: AppSize.s10,
+                                ),),
+                                SizedBox(height: AppSize.s4,),
+                                Divider(color: AppColor.lightGrayColor,
+                                  thickness: AppSize.s2,),
+                                SizedBox(height: AppSize.s4,),
+                                Obx(() {
+                                  if (controller.isLoading.value) {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+
+                                  if (controller.savedCardList.isEmpty) {
+                                    return Center(
+                                      child: Text('No banks available.'),
+                                    );
+                                  }
+
+                                  return ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: controller.savedCardList.length,
+                                    itemBuilder: (context, index) {
+                                      final card = controller.savedCardList[index];
+                                      return ListTile(
+                                        title: Text(card.cardNumber),
+
+                                        onTap: () {
+                                          Get.toNamed(AppPages.CARD2);
                                         },
                                       );
                                     },

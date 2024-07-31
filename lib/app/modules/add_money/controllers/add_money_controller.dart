@@ -13,6 +13,7 @@ import '../../home/widgets/negativeSnackBar.dart';
 import '../../home/widgets/positive_snackbar.dart';
 import '../models/get_all_banks_add_money.dart';
 import '../models/get_saved_banks.dart';
+import '../models/get_saved_card.dart';
 
 class AddMoneyController extends GetxController {
   final localPreferences = Get.put(LocalPreferences());
@@ -20,12 +21,23 @@ class AddMoneyController extends GetxController {
   RxBool isLoading = false.obs;
   var selectedBankName = "".obs;
   final TextEditingController accountNoController = TextEditingController();
+  final TextEditingController cardController =  TextEditingController();
+  final TextEditingController expiryController =  TextEditingController();
+  final TextEditingController holderController =  TextEditingController();
+  final TextEditingController privateController =  TextEditingController();
+
+
+
 
   var accountNo = "".obs;
   var accountTitle = "".obs;
   var customerId = "".obs;
   var bankId = 0.obs;
   var id = 0.obs;
+  var cardNo ="".obs;
+  var expiryDate="".obs;
+  var cardHolder="".obs;
+  var privateNo="".obs;
 
 
   final count = 0.obs;
@@ -35,6 +47,7 @@ class AddMoneyController extends GetxController {
     getInternetBankList();
     getCardList();
     getSavedBank();
+    getSavedCard();
 
 
     super.onInit();
@@ -57,6 +70,7 @@ var bankList =<GetAllBanksAddMoney>[].obs;
 var internetList=<GetAllInternetBankForAddMoney>[].obs;
 var cardList=<GetAllCardsForAddMoney>[].obs;
 var savedBankList=<GetSavedBank>[].obs;
+var savedCardList=<GetSavedCard>[].obs;
 
 void getBankList() async{
   print('============getBankList=============');
@@ -155,6 +169,59 @@ void getBankList() async{
     try{
       await RemoteServices.getSavedBank().then((value) {
         savedBankList.value=value;
+
+
+
+
+        isLoading.value = false;
+      }).catchError((error) {
+        print("getBankList " + error.toString());
+        isLoading.value = false;
+      });
+    } catch (error) {
+      print('getBankList error: $error');
+      isLoading.value = false;
+    }
+  }
+  void saveCard() async{
+    print('=======saveCard=======');
+
+    var reqBody = {
+      "id": 0,
+      "customerId": localPreferences.customerId.val,
+      "cardNumber": cardNo.value,
+      "expiryDate": expiryDate.value,
+      "cardHolderName": cardHolder.value,
+      "privateNumber": privateNo.value  ,
+    };
+
+    try {
+      isLoading.value = true;
+      await RemoteServices.saveCard(reqBody).then((value) {
+        print("value====>>> $value");
+        if(value.contains("successfully")){
+          snackbarPositive("Successful Registration");
+          Get.toNamed(AppPages.INITIAL);
+        } else {
+          negativeSnackbar(message:value);
+        }
+      }).catchError((error) {
+        isLoading.value = false;
+        print("saveBank " + error.toString());
+      });
+    } on HttpException catch (error) {
+      isLoading.value = false;
+      print('saveBank error: $error');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+  void getSavedCard() async{
+    print('============getSavedCard=============');
+    isLoading.value = true;
+    try{
+      await RemoteServices.getSavedCard().then((value) {
+        savedCardList.value=value;
 
 
 

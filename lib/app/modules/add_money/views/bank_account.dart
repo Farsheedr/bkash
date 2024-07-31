@@ -116,6 +116,8 @@ class BkashtoBankView extends GetView<AddMoneyController> {
                       }
 
                       return ListView.builder(
+                        physics: ScrollPhysics(),
+                        scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         itemCount: controller.savedBankList.length,
                         itemBuilder: (context, index) {
