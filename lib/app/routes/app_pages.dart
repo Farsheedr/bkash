@@ -23,7 +23,8 @@ import '../modules/add_money/views/add_money_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/education_view.dart';
 import '../modules/home/views/insurance.dart';
-import '../modules/home/views/login_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/home/views/main_page.dart';
 import '../modules/home/views/other_view.dart';
 import '../modules/home/views/recharge_view.dart';
@@ -202,7 +203,7 @@ class AppPages {
     GetPage(
       name: _Paths.LOGIN,
       page: () =>  LoginView(),
-      binding: HomeBinding(),
+      binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.INTERNET,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:untitled/app/modules/login/bindings/login_binding.dart';
 import 'package:untitled/app/styles/app_languages.dart';
 
 import 'app/modules/home/bindings/home_binding.dart';
@@ -55,8 +56,8 @@ class _MyAppState extends State<MyApp>{
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Kuniko",
-        initialRoute: AppPages.INITIAL,
-        initialBinding: HomeBinding(),
+        initialRoute: AppPages.LOGIN,
+        initialBinding: LoginBinding(),
         getPages: AppPages.routes,
         theme: ThemeData(
             primarySwatch: Colors.blue,

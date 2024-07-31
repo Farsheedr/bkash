@@ -9,8 +9,7 @@ import '../provider/login_provider.dart';
 class HomeController extends GetxController {
 
 
-  final TextEditingController mobileController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+
   final RxBool rememberMe = false.obs;
 
   //TODO: Implement HomeController

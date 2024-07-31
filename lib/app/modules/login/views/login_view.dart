@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../data/preference_data/local_preference.dart';
 import '../../../styles/app_style.dart';
-import '../controllers/home_controller.dart';
-import '../provider/login_provider.dart';
+import '../../home/controllers/home_controller.dart';
+import '../../home/provider/login_provider.dart';
+import '../controllers/login_controller.dart';
 
-class LoginView extends GetView<HomeController> {
+class LoginView extends GetView<LoginController> {
+  LocalPreferences localPreferences = Get.put(LocalPreferences());
+
   @override
   Widget build(BuildContext context) {
 
@@ -49,22 +53,10 @@ class LoginView extends GetView<HomeController> {
                 obscureText: true,
               ),
               SizedBox(height: AppSize.s20),
-              Row(
-                children: [
-                  Obx(
-                        () => Checkbox(
-                      value: controller.rememberMe.value,
-                      onChanged: (value) {
-                        controller.rememberMe.value = value!;
-                      },
-                    ),
-                  ),
-                  Text('Remember Me'),
-                ],
-              ),
+
               SizedBox(height: AppSize.s20),
               ElevatedButton(
-                 onPressed: (){//controller.onLoginClicked();
+                 onPressed: (){controller.onLoginClicked();
                     },
                 child: Text(
                   'Login',
