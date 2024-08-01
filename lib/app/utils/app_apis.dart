@@ -14,6 +14,7 @@ class AppApis{
   static String getAllVehicleZones = '${baseUrl}api/toll/GetAllVehicleZones';
   static String registerVehicles = '${baseUrl}api/toll/RegisterVehicle';
   static String getAllRegisteredVehicles = '${baseUrl}api/toll/GetRegisteredVehicles?customerId=253';
+  static String getAllOrganizationTypes = '${baseUrl}api/paybill/GetAllOrganizationTypes';
 
 
 

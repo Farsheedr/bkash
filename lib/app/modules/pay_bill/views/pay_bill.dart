@@ -5,7 +5,7 @@ import 'package:untitled/app/modules/pay_bill/controllers/pay_bill_controller.da
 
 import '../../../routes/app_pages.dart';
 import '../../../styles/app_style.dart';
-import '../../home/controllers/home_controller.dart';
+
 import '../../home/models/billList.dart';
 import '../../home/models/school_list.dart';
 import '../../home/widgets/custom_elevated_button.dart';
@@ -52,7 +52,7 @@ class PayBillView extends GetView<PayBillController> {
             color: AppColor.colorWhite,
           ),
           child: SingleChildScrollView(
-            child: GetBuilder<HomeController>(
+            child: GetBuilder<PayBillController>(
               builder: (controller) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
@@ -156,7 +156,75 @@ class PayBillView extends GetView<PayBillController> {
                     Divider(
                       color: AppColor.lightGrayColor,
                       thickness: AppSize.s2,
+
                     ),
+                    SizedBox(height: AppSize.s6,),
+                    Obx(() {
+                      if (controller.isLoading.value) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+
+                      if (controller.getOrganizationList.isEmpty) {
+                        return Center(
+                          child: Text('No orgs available.'),
+                        );
+                      }
+
+
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+
+                          crossAxisCount: 4, // Number of columns in the grid
+                          crossAxisSpacing: 10.0, // Horizontal spacing between grid items
+                          mainAxisSpacing: 10.0, // Vertical spacing between grid items
+                          childAspectRatio:1/1, // Aspect ratio for each grid item
+                        ),
+                        itemCount: controller.getOrganizationList.length,
+                        itemBuilder: (context, index) {
+                          final org = controller.getOrganizationList[index];
+                          return GestureDetector(
+                            onTap: () {
+
+                              Get.toNamed(AppPages.CARD2);
+                            },
+                            child: Card(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                side: BorderSide(
+                                  color: AppColor.bkashPurple
+                                )
+
+                              ),
+
+
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      org.name,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: AppSize.s10,
+                                      ),
+                                    ),
+                                    SizedBox(height: 4.0),
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    })
+
                     // SizedBox(height: AppSize.s6),
                     // GridView.count(
                     //   physics: NeverScrollableScrollPhysics(),
